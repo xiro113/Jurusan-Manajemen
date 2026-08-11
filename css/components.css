@@ -51,11 +51,12 @@
 .sticky-header-wrapper {
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  background: #FFFFFF;
   box-shadow: 0 4px 25px rgba(7, 19, 37, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 /* --- Main Navbar --- */
