@@ -552,7 +552,7 @@ class App {
     const kajur = dosenList.find(d => d.id === 'dsn-kajur') || {
       nama: 'Fathor AS',
       gelar: 'SE., M.M.',
-      nidn: '0015107501',
+      nidn: '197811152003121001',
       jabatan: 'Ketua Jurusan Manajemen',
       email: 'fathor.as@trunojoyo.ac.id',
       foto_url: 'IMAGE/Fathor.jpg'
@@ -567,7 +567,7 @@ class App {
     const sekjur = dosenList.find(d => d.id === 'dsn-sekjur') || {
       nama: 'M. Boy Singgih Gitayuda',
       gelar: 'S.E., M.M.',
-      nidn: '0022088302',
+      nidn: '199105122019031010',
       jabatan: 'Sekretaris Jurusan Manajemen',
       email: 'boy.gitayuda@trunojoyo.ac.id',
       foto_url: 'IMAGE/Boy.jpg'
