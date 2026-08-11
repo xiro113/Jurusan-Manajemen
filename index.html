@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurusan Manajemen | FEB Universitas Trunojoyo Madura (UTM)</title>
+  <meta name="description"
+    content="Pusat Administrasi Digital Terpadu Jurusan Manajemen Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura (D3 Entrepreneurship, S1 Manajemen, S2 Manajemen, S3 Doktor Ilmu Manajemen).">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+  <!-- Sticky Header Wrapper -->
+  <header class="sticky-header-wrapper">
+    <div id="role-bar-container"></div>
+    <div id="navbar-container"></div>
+  </header>
+
+  <!-- Dynamic Page Content Root -->
+  <main id="main-content"></main>
+
+  <!-- Main Footer -->
+  <div id="footer-container"></div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal Login (Pengguna Umum & Admin) -->
+  <div class="modal-overlay" id="modal-login">
+    <div class="modal-card" style="max-width: 460px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Log Masuk Sistem (Pengguna & Admin)</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="login-role-selector"
+          style="display: flex; background: #F1F5F9; border-radius: 10px; padding: 4px; margin-bottom: 1.5rem;">
+          <button type="button" id="tab-login-mhs" class="login-tab-btn active"
+            style="flex: 1; padding: 0.65rem; border: none; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; background: #FFF; color: #0F2942; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            👤 Pengguna Umum
+          </button>
+          <button type="button" id="tab-login-admin" class="login-tab-btn"
+            style="flex: 1; padding: 0.65rem; border: none; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; background: transparent; color: #64748B;">
+            🛡️ Admin Jurusan
+          </button>
+        </div>
+
+        <form id="form-login">
+          <!-- Mode Pengguna Umum: Tanpa ID & Password -->
+          <div id="group-login-mhs">
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #047857; line-height: 1.5; text-align: center;">
+              🟢 <strong>Akses Pengguna Umum:</strong> Tanpa ID & Tanpa Password. Langsung klik tombol di bawah untuk membuka dan melihat seluruh informasi web.
+            </div>
+          </div>
+
+          <!-- Mode Admin: Diperlukan ID & Password -->
+          <div id="group-login-admin" style="display: none;">
+            <div style="background: rgba(2, 132, 199, 0.08); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 8px; padding: 0.85rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: #0369A1; line-height: 1.5;">
+              🔒 <strong>Akses Khusus Admin:</strong> Diperlukan ID / Username & Password Admin yang valid untuk mengelola data & status dosen serta sistem.
+            </div>
+            <div class="form-group">
+              <label class="form-label">ID / Username Admin <span style="color: #EF4444;">*</span></label>
+              <input type="text" id="login-admin-id" class="form-control" placeholder="Masukkan ID / Username Admin">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Kata Sandi / Password Admin <span style="color: #EF4444;">*</span></label>
+              <input type="password" id="login-admin-pass" class="form-control" placeholder="Masukkan Password Admin">
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-primary" id="btn-submit-login" style="flex: 1; justify-content: center; padding: 0.75rem; font-weight: 800;">
+              Masuk Sekarang
+            </button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Upload Pemberkasan Mahasiswa -->
+  <div class="modal-overlay" id="modal-upload-doc">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Form Kroscek Status Berkas Fisik</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div
+          style="background: rgba(2, 132, 199, 0.08); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: #0369A1; line-height: 1.5;">
+          ℹ️ <strong>Informasi Berkas Fisik:</strong> Penyerahan dokumen dilakukan secara langsung kepada Asisten
+          Jurusan Manajemen. Pengisian form ini bertujuan untuk merekam dan memantau tracking status kroscek berkas Anda
+          secara online.
+        </div>
+
+        <form id="form-upload-doc">
+          <div class="form-group">
+            <label class="form-label">Jenis Berkas Administrasi Yang Diserahkan</label>
+            <select id="doc-type" class="form-control" required onchange="window.handleDocTypeChange(this)">
+              <option value="">-- Pilih Jenis Berkas Fisik --</option>
+              <option value="Pengajuan Judul Skripsi">Pengajuan Judul Skripsi</option>
+              <option value="Surat Izin Penelitian Kampus">Surat Izin Penelitian Kampus</option>
+              <option value="Berkas Kelengkapan Yudisium">Berkas Kelengkapan Yudisium</option>
+              <option value="Surat Keterangan Masih Kuliah">Surat Keterangan Masih Kuliah</option>
+              <option value="Berkas Pendaftaran Magang Industri">Berkas Pendaftaran Magang Industri</option>
+              <option value="Pendaftaran Ujian Tesis / Disertasi">Pendaftaran Ujian Tesis / Disertasi</option>
+              <option value="Lainnya">Lainnya (Ketik Manual)</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="group-doc-type-other" style="display: none; margin-top: 0.85rem;">
+            <label class="form-label" style="color: var(--color-navy-primary); font-weight: 700;">Sebutkan Jenis Berkas
+              Fisik Lainnya *</label>
+            <input type="text" id="doc-type-other" class="form-control"
+              placeholder="Tuliskan nama berkas fisik di sini (contoh: Form Bebas Lab / Cuti Akademik)"
+              style="background: #FFF; color: #0F172A; position: relative; z-index: 10;">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Keterangan / Catatan Tambahan (Opsional)</label>
+            <textarea id="doc-notes" class="form-control" rows="3"
+              placeholder="Contoh: Berkas fisik diserahkan kepada Pak Admin pada tanggal 7 Agustus jam 09.00 WIB..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-gold" style="flex: 1; justify-content: center;">Ajukan Kroscek Status
+              Berkas</button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Upload Prestasi Mahasiswa -->
+  <div class="modal-overlay" id="modal-upload-prestasi">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Form Unggah Berkas Prestasi Mahasiswa</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-upload-prestasi">
+          <div class="form-group">
+            <label class="form-label">Judul Prestasi / Penghargaan / Publikasi</label>
+            <input type="text" id="pres-title" class="form-control"
+              placeholder="Contoh: Juara 1 Business Plan Competition 2026" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Kategori</label>
+              <select id="pres-category" class="form-control" required>
+                <option value="Akademik / Competition">Akademik / Competition</option>
+                <option value="Kewirausahaan">Kewirausahaan</option>
+                <option value="Publikasi Ilmiah">Publikasi Ilmiah</option>
+                <option value="Seni & Olahraga">Seni & Olahraga</option>
+                <option value="Organisasi & Kepemimpinan">Organisasi & Kepemimpinan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tingkat</label>
+              <select id="pres-level" class="form-control" required>
+                <option value="Lokal / Regional">Lokal / Regional</option>
+                <option value="Nasional">Nasional</option>
+                <option value="Internasional">Internasional</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tanggal Pelaksanaan Kegiatan</label>
+            <input type="date" id="pres-date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">File Bukti Sertifikat (PDF/JPG/PNG)</label>
+            <input type="file" id="pres-file" class="form-control" accept=".pdf,.jpg,.png" required>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">Unggah Bukti
+              Prestasi</button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Input Presensi Pimpinan -->
+  <div class="modal-overlay" id="modal-add-attendance">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Input Daftar Hadir Pimpinan / Dosen</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-add-attendance">
+          <div class="form-group">
+            <label class="form-label">Tanggal Kegiatan</label>
+            <input type="date" id="att-date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nama Pimpinan / Dosen</label>
+            <select id="att-name" class="form-control" required>
+              <option value="Dr. A. Yahya Surya Winata, S.E., M.Si.">Dr. A. Yahya Surya Winata, S.E., M.Si. (Koprodi S3)
+              </option>
+              <option value="Dr. Bambang Setiyo Pambudi, S.E., M.M.">Dr. Bambang Setiyo Pambudi, S.E., M.M. (Koprodi S2)
+              </option>
+              <option value="Yustina Chrismardani, SSi., M.M.">Yustina Chrismardani, SSi., M.M. (Koprodi S1)</option>
+              <option value="Darul Islam, SE., M.M.">Darul Islam, SE., M.M. (Koprodi D3)</option>
+              <option value="Dr. Sutikno, S.E., M.E.">Dr. Sutikno, S.E., M.E. (WD I FEB)</option>
+              <option value="Eko Prasetyo, S.E., M.Sc.">Eko Prasetyo, S.E., M.Sc. (Sekjur)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Agenda Rapat / Kegiatan Jurusan</label>
+            <input type="text" id="att-agenda" class="form-control" placeholder="Contoh: Rapat Evaluasi Kurikulum MBKM"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Status Presensi</label>
+            <select id="att-status" class="form-control" required>
+              <option value="Hadir">Hadir</option>
+              <option value="Izin">Izin</option>
+              <option value="Sakit">Sakit</option>
+              <option value="Alpa">Alpa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Catatan / Keterangan Dinas</label>
+            <input type="text" id="att-notes" class="form-control" placeholder="Opsional...">
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">Simpan
+              Kehadiran</button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Dosen -->
+  <div class="modal-overlay" id="modal-add-dosen">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Tambah Data Dosen Jurusan Manajemen</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-add-dosen">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Nama Dosen (Tanpa Gelar)</label>
+              <input type="text" id="dsn-nama" class="form-control" placeholder="Contoh: Ahmad Yani" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Gelar Akademik</label>
+              <input type="text" id="dsn-gelar" class="form-control" placeholder="Contoh: S.E., M.M., Ph.D." required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">NIP / NIDN</label>
+              <input type="text" id="dsn-nidn" class="form-control" placeholder="Contoh: 198704162015042005" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Program Studi</label>
+              <select id="dsn-prodi" class="form-control" required>
+                <option value="prodi-d3">D3 Entrepreneurship</option>
+                <option value="prodi-s1" selected>S1 Manajemen</option>
+                <option value="prodi-s2">S2 Manajemen</option>
+                <option value="prodi-s3">S3 Doktor Ilmu Manajemen</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Jabatan Fungsional</label>
+            <input type="text" id="dsn-jabatan" class="form-control" placeholder="Lektor Kepala / Guru Besar" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Resmi UTM</label>
+            <input type="email" id="dsn-email" class="form-control" placeholder="dosen@trunojoyo.ac.id" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Mata Kuliah Ampuan (Pisahkan koma)</label>
+            <input type="text" id="dsn-mk" class="form-control" placeholder="Manajemen Keuangan, Riset Operasi"
+              required>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">Simpan Data
+              Dosen</button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Pengumuman -->
+  <div class="modal-overlay" id="modal-add-news">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Buat Pengumuman Jurusan Baru</h3>
+        <button class="btn-close btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-add-news">
+          <div class="form-group">
+            <label class="form-label">Judul Pengumuman</label>
+            <input type="text" id="news-title" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kategori</label>
+            <select id="news-category" class="form-control" required>
+              <option value="Akademik">Akademik</option>
+              <option value="Kemahasiswaan">Kemahasiswaan</option>
+              <option value="Event / Seminar">Event / Seminar</option>
+              <option value="Prestasi Jurusan">Prestasi Jurusan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ringkasan Singkat</label>
+            <input type="text" id="news-summary" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Isi Pengumuman Lengkap</label>
+            <textarea id="news-body" class="form-control" rows="5" required></textarea>
+          </div>
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">Terbitkan
+              Pengumuman</button>
+            <button type="button" class="btn-outline btn-close-modal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Bundle -->
+  <script type="module">
+    import { app } from './js/app.js';
+    import { db } from './js/storage.js';
+    import { auth } from './js/auth.js';
+    import { UI } from './js/ui.js';
+
+    window.app = app;
+    window.db = db;
+    window.auth = auth;
+    window.UI = UI;
+
+    // Drag and Drop File trigger setup
+    const dropzone = document.getElementById('doc-dropzone');
+    const fileInput = document.getElementById('doc-file');
+    const fileLabel = document.getElementById('doc-file-label');
+
+    if (dropzone && fileInput) {
+      dropzone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          const file = e.target.files[0];
+          fileLabel.innerText = `File Terpilih: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+        }
+      });
+    }
+
+    // Modal Form Submissions & Tab Toggle
+    let currentLoginMode = 'mhs';
+
+    const tabMhs = document.getElementById('tab-login-mhs');
+    const tabAdmin = document.getElementById('tab-login-admin');
+    const groupMhs = document.getElementById('group-login-mhs');
+    const groupAdmin = document.getElementById('group-login-admin');
+
+    if (tabMhs && tabAdmin) {
+      tabMhs.addEventListener('click', () => {
+        currentLoginMode = 'mhs';
+        tabMhs.classList.add('active');
+        tabMhs.style.background = '#FFF';
+        tabMhs.style.color = '#0F2942';
+        tabMhs.style.boxShadow = '0 2px 4px rgba(0,0,0,0.08)';
+
+        tabAdmin.classList.remove('active');
+        tabAdmin.style.background = 'transparent';
+        tabAdmin.style.color = '#64748B';
+        tabAdmin.style.boxShadow = 'none';
+
+        groupMhs.style.display = 'block';
+        groupAdmin.style.display = 'none';
+      });
+
+      tabAdmin.addEventListener('click', () => {
+        currentLoginMode = 'admin';
+        tabAdmin.classList.add('active');
+        tabAdmin.style.background = '#FFF';
+        tabAdmin.style.color = '#0F2942';
+        tabAdmin.style.boxShadow = '0 2px 4px rgba(0,0,0,0.08)';
+
+        tabMhs.classList.remove('active');
+        tabMhs.style.background = 'transparent';
+        tabMhs.style.color = '#64748B';
+        tabMhs.style.boxShadow = 'none';
+
+        groupAdmin.style.display = 'block';
+        groupMhs.style.display = 'none';
+      });
+    }
+
+    document.getElementById('form-login')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      try {
+        let user = null;
+        if (currentLoginMode === 'mhs') {
+          const nama = document.getElementById('login-mhs-nama')?.value || '';
+          const finalNama = nama.trim() || 'Pengguna Umum';
+          user = auth.loginMhs(finalNama);
+          app.activeTab = 'home';
+          UI.showToast(`Selamat datang, ${user.nama}! Anda berhasil masuk sebagai Pengguna Umum.`, 'success');
+        } else {
+          const adminId = document.getElementById('login-admin-id')?.value || '';
+          const adminPass = document.getElementById('login-admin-pass')?.value || '';
+          if (!adminId.trim() || !adminPass.trim()) {
+            UI.showToast("Admin wajib memasukkan ID / Username dan Password!", "warning");
+            return;
+          }
+          user = auth.loginAdmin(adminId.trim(), adminPass.trim());
+          app.activeTab = 'admin';
+          UI.showToast(`Selamat datang, ${user.nama}! Akses Panel Admin dibuka.`, 'success');
+        }
+        app.closeModals();
+        app.render();
+      } catch (err) {
+        UI.showToast(err.message, 'error');
+      }
+    });
+
+    // Dynamic toggle for "Lainnya" document type
+    const selectDocType = document.getElementById('doc-type');
+    const groupOther = document.getElementById('group-doc-type-other');
+    const inputOther = document.getElementById('doc-type-other');
+
+    window.handleDocTypeChange = (selectEl) => {
+      const gOther = document.getElementById('group-doc-type-other');
+      const inOther = document.getElementById('doc-type-other');
+      if (!gOther) return;
+
+      if ((selectEl ? selectEl.value : '') === 'Lainnya') {
+        gOther.style.display = 'block';
+        if (inOther) {
+          inOther.required = true;
+          setTimeout(() => inOther.focus(), 50);
+        }
+      } else {
+        gOther.style.display = 'none';
+        if (inOther) inOther.required = false;
+      }
+    };
+
+    if (selectDocType) {
+      selectDocType.addEventListener('change', (e) => window.handleDocTypeChange(e.target));
+    }
+
+    document.getElementById('form-upload-doc')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const rawType = selectDocType ? selectDocType.value : '';
+      let finalDocType = rawType;
+      if (rawType === 'Lainnya') {
+        finalDocType = inputOther && inputOther.value.trim() ? inputOther.value.trim() : 'Berkas Fisik Lainnya';
+      }
+      const notes = document.getElementById('doc-notes')?.value || '';
+
+      db.addPemberkasan({
+        jenis_berkas: finalDocType,
+        file_name: 'Penyerahan Berkas Fisik di Jurusan',
+        file_size: 'Fisik',
+        catatan_admin: notes ? `Keterangan Mhs: ${notes}` : 'Berkas fisik diterima di jurusan, dalam proses kroscek admin.'
+      });
+
+      UI.showToast('Pengajuan kroscek status berkas fisik berhasil dicatat!', 'success');
+      app.closeModals();
+      app.render();
+    });
+
+    document.getElementById('form-upload-prestasi')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.addPrestasi({
+        judul: document.getElementById('pres-title').value,
+        kategori: document.getElementById('pres-category').value,
+        tingkat: document.getElementById('pres-level').value,
+        tanggal_kegiatan: document.getElementById('pres-date').value,
+        file_bukti_name: 'Sertifikat_Prestasi.pdf'
+      });
+      UI.showToast('Berkas prestasi berhasil dikirim ke Admin!');
+      app.closeModals();
+      app.render();
+    });
+
+    document.getElementById('form-add-attendance')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.addDaftarHadir({
+        tanggal: document.getElementById('att-date').value,
+        nama_pimpinan: document.getElementById('att-name').value,
+        jabatan: document.getElementById('att-name').selectedOptions[0].text.split('(')[1]?.replace(')', '') || 'Pimpinan',
+        agenda: document.getElementById('att-agenda').value,
+        status_hadir: document.getElementById('att-status').value,
+        catatan: document.getElementById('att-notes').value || '-'
+      });
+      UI.showToast('Presensi pimpinan berhasil dicatat!');
+      app.closeModals();
+      app.render();
+    });
+
+    document.getElementById('form-add-dosen')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const prodiSelect = document.getElementById('dsn-prodi');
+      db.addDosen({
+        nama: document.getElementById('dsn-nama').value,
+        gelar: document.getElementById('dsn-gelar').value,
+        nidn: document.getElementById('dsn-nidn').value,
+        prodi_id: prodiSelect.value,
+        prodi_nama: prodiSelect.selectedOptions[0].text,
+        jabatan: document.getElementById('dsn-jabatan').value,
+        email: document.getElementById('dsn-email').value,
+        mata_kuliah: document.getElementById('dsn-mk').value.split(',').map(m => m.trim())
+      });
+      UI.showToast('Data dosen baru berhasil ditambahkan!');
+      app.closeModals();
+      app.render();
+    });
+
+    document.getElementById('form-add-news')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.addPengumuman({
+        judul: document.getElementById('news-title').value,
+        kategori: document.getElementById('news-category').value,
+        ringkasan: document.getElementById('news-summary').value,
+        isi: document.getElementById('news-body').value
+      });
+      UI.showToast('Pengumuman baru berhasil diterbitkan!');
+      app.closeModals();
+      app.render();
+    });
+
+    // Automatic Live-Reload Engine
+    let lastMtime = null;
+    setInterval(async () => {
+      try {
+        const res = await fetch('/api/live-reload-check');
+        const data = await res.json();
+        if (lastMtime === null) {
+          lastMtime = data.mtime;
+        } else if (data.mtime > lastMtime) {
+          console.log('[LiveReload] Code change detected! Reloading page...');
+          lastMtime = data.mtime;
+          window.location.reload();
+        }
+      } catch (e) { }
+    }, 700);
+  </script>
+</body>
+
+</html>
