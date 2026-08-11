@@ -1857,9 +1857,17 @@ class App {
 
     return `
       <div class="container" style="padding: 2.5rem 1.5rem;">
-        <div style="margin-bottom: 2rem;">
-          <h2 style="color: var(--color-navy-primary);">Panel Kontrol Admin Jurusan</h2>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Kelola data pemberkasan, prestasi, absensi pimpinan, dosen, dan pengguna jurusan secara terpusat.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; background: #FFF; padding: 1.5rem 1.75rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+          <div>
+            <span style="background: rgba(2, 132, 199, 0.12); color: #0284C7; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Portal Administrator Jurusan</span>
+            <h2 style="color: var(--color-navy-primary); margin: 0.35rem 0 0.2rem 0; font-weight: 800;">Panel Kontrol Admin Jurusan</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Kelola data pemberkasan, prestasi, absensi pimpinan, dosen, dan pengguna jurusan secara terpusat.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn-outline" onclick="window.logoutUser()" style="font-weight: 800; border-color: #FCA5A5; color: #DC2626; background: #FFF; padding: 0.6rem 1rem; font-size: 0.85rem;" title="Keluar dari akun admin untuk beralih akun">
+              🚪 Keluar / Beralih Akun
+            </button>
+          </div>
         </div>
 
         <div class="admin-layout">
@@ -1871,6 +1879,11 @@ class App {
               <li><button class="admin-nav-btn ${this.adminTab === 'prestasi' ? 'active' : ''}" data-admin-tab="prestasi">🏆 Berkas Prestasi Mhs</button></li>
               <li><button class="admin-nav-btn ${this.adminTab === 'attendance' ? 'active' : ''}" data-admin-tab="attendance">📌 Daftar Hadir Pimpinan</button></li>
               <li><button class="admin-nav-btn ${this.adminTab === 'users' ? 'active' : ''}" data-admin-tab="users">👥 Manajemen Pengguna</button></li>
+              <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                <button class="admin-nav-btn" onclick="window.logoutUser()" style="color: #DC2626; font-weight: 700;">
+                  🚪 Keluar / Beralih Akun
+                </button>
+              </li>
             </ul>
           </aside>
           <main>
