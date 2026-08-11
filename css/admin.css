@@ -21,7 +21,7 @@
 
   .admin-sidebar {
     position: sticky;
-    top: 65px;
+    top: 110px;
     z-index: 90;
     padding: 0.5rem;
     border-radius: var(--radius-lg);
@@ -55,7 +55,7 @@
   }
 
   .admin-sidebar {
-    top: 55px;
+    top: 130px;
     border-radius: 12px;
     margin-bottom: 1rem;
     padding: 0.4rem;

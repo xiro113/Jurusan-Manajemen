@@ -181,6 +181,22 @@ button {
   padding: 0 1.5rem;
 }
 
+main#main-content {
+  padding-top: 96px;
+}
+
+@media (max-width: 1024px) {
+  main#main-content {
+    padding-top: 110px;
+  }
+}
+
+@media (max-width: 640px) {
+  main#main-content {
+    padding-top: 130px;
+  }
+}
+
 .page-tab-content {
   animation: pageMorphIn 0.38s cubic-bezier(0.34, 1.25, 0.64, 1) forwards;
   will-change: transform, opacity, border-radius, box-shadow;
