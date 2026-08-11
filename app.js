@@ -67,6 +67,9 @@ class App {
     // Event Listeners for global elements
     this.bindEvents();
 
+    // Responsive Header offset dynamic listener
+    window.addEventListener('resize', () => this.updateHeaderOffset());
+
     // Initial render
     this.render();
   }
@@ -242,15 +245,32 @@ class App {
     document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
   }
 
+  updateHeaderOffset() {
+    const main = document.getElementById('main-content');
+    const header = document.querySelector('.sticky-header-wrapper');
+    if (!main) return;
+    if (!header || !auth.isLoggedIn()) {
+      main.style.paddingTop = '0px';
+      return;
+    }
+    const h = header.getBoundingClientRect().height;
+    if (h > 0) {
+      main.style.paddingTop = `${Math.ceil(h) + 16}px`;
+    }
+  }
+
   render() {
     if (!auth.isLoggedIn()) {
       this.renderLoginGate();
+      this.updateHeaderOffset();
       return;
     }
     this.renderRoleBar();
     this.renderNavbar();
     this.renderMainContent();
     this.renderFooter();
+    this.updateHeaderOffset();
+    setTimeout(() => this.updateHeaderOffset(), 50);
   }
 
   renderLoginGate() {
