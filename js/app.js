@@ -505,10 +505,10 @@ class App {
         <div class="container hero-container-centered">
           <h1 class="hero-title">Jurusan Manajemen <span>FEB UTM</span></h1>
           
-          <p style="font-weight: 400; font-size: 1.1rem; color: #F1F5F9; margin: 0 auto 0.35rem auto; max-width: 820px; line-height: 1.35; text-align: center; letter-spacing: 0.2px;">
+          <p style="font-weight: 500; font-size: 1.2rem; color: #FFFFFF; margin: 0 auto 0.4rem auto; max-width: 860px; line-height: 1.4; text-align: center; letter-spacing: 0.3px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);">
             Jurusan Manajemen Fakultas Ekonomi dan Bisnis Universitas Trunodjoyo Madura
           </p>
-          <p style="font-weight: 400; font-size: 0.96rem; color: rgba(203, 213, 225, 0.92); margin: 0 auto 1.6rem auto; max-width: 720px; line-height: 1.4; text-align: center;">
+          <p style="font-weight: 400; font-size: 1.02rem; color: #FFFFFF; opacity: 0.92; margin: 0 auto 1.75rem auto; max-width: 760px; line-height: 1.45; text-align: center; letter-spacing: 0.2px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">
             Membentuk pemimpin masa depan yang inovatif, beretika, dan berdaya saing global.
           </p>
 

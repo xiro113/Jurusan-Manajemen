@@ -371,17 +371,20 @@
 .hero-title {
   font-size: 4.2rem;
   font-weight: 900;
-  color: var(--text-white);
+  color: #FFFFFF;
   line-height: 1.08;
-  letter-spacing: -0.5px;
-  margin-bottom: 0.65rem;
+  letter-spacing: -0.8px;
+  margin-bottom: 0.75rem;
   text-align: center;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .hero-title span {
-  background: linear-gradient(135deg, #FBF4DB 0%, #D4AF37 50%, #F59E0B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #FFFFFF;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: #FFFFFF;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .hero-description {
