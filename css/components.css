@@ -372,9 +372,9 @@
   font-size: 4.2rem;
   font-weight: 900;
   color: var(--text-white);
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.5px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 0.65rem;
   text-align: center;
 }
 
