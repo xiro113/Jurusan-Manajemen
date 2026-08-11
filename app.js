@@ -502,24 +502,9 @@ class App {
 
     return `
       <section class="hero" style="background: linear-gradient(135deg, rgba(7, 19, 37, 0.58) 0%, rgba(15, 41, 66, 0.48) 60%, rgba(7, 19, 37, 0.60) 100%), url('IMAGE/Gedung FEB UTM.png'); background-size: cover; background-position: center center;">
-        <div class="container hero-grid">
-          <div>
-            <div class="hero-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 6 12 12 16 14"/></svg>
-              Pusat Administrasi Digital Terpadu
-            </div>
-            <h1 class="hero-title">Jurusan Manajemen <span>FEB UTM</span></h1>
-            <p class="hero-description">Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura.</p>
-            <div class="hero-actions">
-              <a href="https://script.google.com/macros/s/AKfycbxvM9GnakdnMI2uSRr5qZ4xIU3SzN8FEKhCL05dMg1dBexu75sYe_k6XUl_178vq9axQg/exec" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; font-weight: 800;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Pengajuan Berkas Mahasiswa 🚀
-              </a>
-              <button class="btn-primary" style="background: #FFFFFF !important; color: #0F2942 !important; font-weight: 800; border: none; box-shadow: 0 4px 18px rgba(255, 255, 255, 0.4);" data-nav="prodi">
-                Jelajahi 4 Program Studi
-              </button>
-            </div>
-          </div>
+        <div class="container hero-container-centered">
+          <h1 class="hero-title">Jurusan Manajemen <span>FEB UTM</span></h1>
+          
           <div class="hero-stats">
             <div class="stat-card">
               <div class="stat-number">4</div>
@@ -537,6 +522,16 @@ class App {
               <div class="stat-number">${formattedTotal}</div>
               <div class="stat-label">Mahasiswa Aktif</div>
             </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://script.google.com/macros/s/AKfycbxvM9GnakdnMI2uSRr5qZ4xIU3SzN8FEKhCL05dMg1dBexu75sYe_k6XUl_178vq9axQg/exec" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; font-weight: 800;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Pengajuan Berkas Mahasiswa 🚀
+            </a>
+            <button class="btn-primary" style="background: #FFFFFF !important; color: #0F2942 !important; font-weight: 800; border: none; box-shadow: 0 4px 18px rgba(255, 255, 255, 0.4);" data-nav="prodi">
+              Jelajahi 4 Program Studi
+            </button>
           </div>
         </div>
       </section>
