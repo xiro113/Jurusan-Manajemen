@@ -1289,22 +1289,38 @@ class App {
 
   getKontakHTML() {
     return `
-      <div class="container" style="padding: 4rem 1.5rem;">
+      <div class="container" style="padding: 3rem 1.5rem;">
         <div class="section-header">
           <span class="section-tag">Hubungi Kami</span>
           <h2 class="section-title">Sekretariat Jurusan Manajemen FEB UTM</h2>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem;">
-          <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
-            <h3 style="color: var(--color-navy-primary); margin-bottom: 1.25rem;">Informasi Alamat</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1rem;"><strong>Gedung Fakultas Ekonomi dan Bisnis (FEB) Lt. 2</strong><br>Universitas Trunojoyo Madura<br>Jl. Raya Telang, PO. BOX 2 Kamal, Bangkalan - Jawa Timur (69162)</p>
-            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Email Resmi:</strong> jurusan.manajemen@trunojoyo.ac.id</p>
-            <p style="color: var(--text-muted);"><strong>Telepon:</strong> (031) 3011146 / Ext. 204</p>
+          <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); overflow-wrap: break-word; word-break: break-word;">
+            <h3 style="color: var(--color-navy-primary); margin-bottom: 1.25rem; font-weight: 800;">Informasi Alamat & Kontak Sekretariat</h3>
+            
+            <div style="margin-bottom: 1.25rem; word-break: break-word;">
+              <strong style="color: var(--color-navy-primary); display: block; margin-bottom: 0.25rem;">📍 Alamat Kantor Sekretariat:</strong>
+              <p style="color: var(--text-muted); margin: 0; line-height: 1.6; font-size: 0.92rem;">
+                Gedung Fakultas Ekonomi dan Bisnis (FEB) Lt. 2<br>
+                Universitas Trunojoyo Madura<br>
+                Jl. Raya Telang, PO. BOX 2 Kamal, Bangkalan - Jawa Timur (69162)
+              </p>
+            </div>
+
+            <div style="margin-bottom: 1.25rem; word-break: break-word; overflow-wrap: break-word;">
+              <strong style="color: var(--color-navy-primary); display: block; margin-bottom: 0.25rem;">📧 Email Resmi Jurusan:</strong>
+              <span style="color: var(--color-blue-accent); font-weight: 700; word-break: break-all; overflow-wrap: anywhere; display: inline-block; font-size: 0.92rem;">jurusan.manajemen@trunojoyo.ac.id</span>
+            </div>
+
+            <div style="word-break: break-word;">
+              <strong style="color: var(--color-navy-primary); display: block; margin-bottom: 0.25rem;">📞 Kontak Telepon:</strong>
+              <span style="color: var(--text-muted); font-weight: 600; font-size: 0.92rem;">(031) 3011146 / Ext. 204</span>
+            </div>
           </div>
-          <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+          <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
             <img src="IMAGE/LOGO UTM.png" alt="Logo UTM" style="width: 84px; height: auto; max-height: 84px; object-fit: contain; margin-bottom: 1rem;">
-            <h4>Lokasi Kampus Utama</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Peta digital kampus UTM Bangkalan Madura.</p>
+            <h4 style="color: var(--color-navy-primary); font-weight: 800; margin: 0;">Lokasi Kampus Utama</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">Gedung FEB Universitas Trunojoyo Madura Bangkalan, Jawa Timur.</p>
           </div>
         </div>
       </div>
