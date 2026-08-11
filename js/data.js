@@ -196,6 +196,78 @@ export const INITIAL_DOSEN = [
     email: "helmi.safrizal@trunojoyo.ac.id",
     foto_url: "IMAGE/Helmi.jpg",
     mata_kuliah: ["Manajemen Strategis", "Manajemen Teknologi & Inovasi"]
+  },
+  {
+    id: "dsn-013",
+    nama: "Dr. Hj. Iriani Ismail",
+    gelar: "Dra., M.M.",
+    nidn: "196206231988112001",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "iriani.ismail@trunojoyo.ac.id",
+    foto_url: "IMAGE/Ir.jpg",
+    mata_kuliah: ["Manajemen Sumber Daya Manusia", "Perilaku Organisasi"]
+  },
+  {
+    id: "dsn-014",
+    nama: "Drs. Makhmud Zulkifli",
+    gelar: "M.Si.",
+    nidn: "196407242001121001",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "makhmud.zulkifli@trunojoyo.ac.id",
+    foto_url: "IMAGE/Makhmud.jpg",
+    mata_kuliah: ["Manajemen Keuangan", "Pengantar Manajemen"]
+  },
+  {
+    id: "dsn-015",
+    nama: "Dr. Mochammad Isa Anshori",
+    gelar: "S.E., M.Si.",
+    nidn: "197003222005011003",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "isa.anshori@trunojoyo.ac.id",
+    foto_url: "IMAGE/Isa.jpg",
+    mata_kuliah: ["Manajemen Pemasaran", "Metodologi Penelitian"]
+  },
+  {
+    id: "dsn-016",
+    nama: "Deykha Aguilika",
+    gelar: "S.EI., M.SM.",
+    nidn: "199008082022032012",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "deykha.aguilika@trunojoyo.ac.id",
+    foto_url: "IMAGE/Deykha.jpg",
+    mata_kuliah: ["Manajemen Keuangan Syariah", "Pengantar Bisnis"]
+  },
+  {
+    id: "dsn-017",
+    nama: "Dr. Dede Rosyadi ZA",
+    gelar: "S.Hum., M.Pd",
+    nidn: "198804162022031005",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "dede.rosyadi@trunojoyo.ac.id",
+    foto_url: "IMAGE/Dede.jpg",
+    mata_kuliah: ["Bahasa Indonesia Akademik", "Etika Bisnis"]
+  },
+  {
+    id: "dsn-018",
+    nama: "Dr. Muhammad Alkirom Wildan",
+    gelar: "S.E., M.Si.",
+    nidn: "196902132005011001",
+    prodi_id: "prodi-s1",
+    prodi_nama: "S1 Manajemen",
+    jabatan: "",
+    email: "alkirom.wildan@trunojoyo.ac.id",
+    foto_url: "IMAGE/Wildan.jpg",
+    mata_kuliah: ["Manajemen Strategik", "Manajemen Perubahan"]
   }
 ];
 

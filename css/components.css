@@ -361,7 +361,7 @@
   color: var(--color-gold-primary);
   font-weight: 700;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hero-title {
@@ -1069,7 +1069,7 @@
     padding: 1.5rem 0.85rem !important;
   }
 
-  .login-gate-screen > div {
+  .login-gate-screen>div {
     padding: 1.75rem 1.25rem !important;
     border-radius: 18px !important;
   }
