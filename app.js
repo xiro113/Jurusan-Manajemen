@@ -616,32 +616,32 @@ class App {
         </div>
 
         <!-- Tier 1: Pimpinan Utama (Kajur & Sekjur) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.75rem; max-width: 880px; margin: 0 auto 2.5rem auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.5rem; max-width: 880px; margin: 0 auto 2.5rem auto;">
           <!-- Card Kajur -->
-          <div style="background: #FFF; border: 2px solid rgba(212, 175, 55, 0.5); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden; flex-wrap: wrap;">
+          <div style="background: #FFF; border: 2px solid rgba(212, 175, 55, 0.5); border-radius: var(--radius-xl); padding: 1.5rem 1.25rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden; flex-wrap: wrap;">
             <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
             <img src="${kajurFoto}" alt="${kajur.nama}" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--color-gold-primary); flex-shrink: 0; box-shadow: 0 4px 12px rgba(212,175,55,0.3); cursor: pointer;" onclick="window.previewAndDownloadPhoto('${kajurFoto}', '${kajur.nama}')" title="Klik untuk memperbesar & mengunduh foto">
-            <div>
-              <span style="background: var(--gradient-gold); color: var(--color-navy-dark); font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Ketua Jurusan</span>
-              <h4 style="font-size: 1.15rem; color: var(--color-navy-primary); margin: 0.4rem 0 0.15rem 0; font-weight: 800;">${kajur.nama}, ${kajur.gelar}</h4>
-              <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem;">
+            <div style="flex: 1; min-width: 0; word-break: break-word; overflow-wrap: break-word;">
+              <span style="background: var(--gradient-gold); color: var(--color-navy-dark); font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">Ketua Jurusan</span>
+              <h4 style="font-size: 1.15rem; color: var(--color-navy-primary); margin: 0.4rem 0 0.15rem 0; font-weight: 800; word-break: break-word;">${kajur.nama}${kajur.gelar ? ', ' + kajur.gelar : ''}</h4>
+              <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem; word-break: break-word;">
                 <span>NIP: ${kajur.nidn}</span>
-                <span style="color: var(--color-blue-accent); font-weight: 600;">${kajur.email}</span>
+                <span style="color: var(--color-blue-accent); font-weight: 600; word-break: break-all; overflow-wrap: anywhere;">${kajur.email}</span>
               </div>
               ${isAdmin ? `<button class="btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.7rem; margin-top: 0.4rem;" onclick="window.changeDosenPhoto('dsn-kajur')">Ubah Foto</button>` : ''}
             </div>
           </div>
 
-          <!-- Card Sekjur -->
-          <div style="background: #FFF; border: 2px solid rgba(2, 132, 199, 0.4); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden;">
+          <!-- Card Sekjur (M. Boy Singgih Gitayuda) -->
+          <div style="background: #FFF; border: 2px solid rgba(2, 132, 199, 0.4); border-radius: var(--radius-xl); padding: 1.5rem 1.25rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden; flex-wrap: wrap;">
             <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle, rgba(2,132,199,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
             <img src="${sekjurFoto}" alt="${sekjur.nama}" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--color-blue-accent); flex-shrink: 0; box-shadow: 0 4px 12px rgba(2,132,199,0.3); cursor: pointer;" onclick="window.previewAndDownloadPhoto('${sekjurFoto}', '${sekjur.nama}')" title="Klik untuk memperbesar & mengunduh foto">
-            <div>
-              <span style="background: rgba(2, 132, 199, 0.15); color: #0284C7; font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sekretaris Jurusan</span>
-              <h4 style="font-size: 1.15rem; color: var(--color-navy-primary); margin: 0.4rem 0 0.15rem 0; font-weight: 800;">${sekjur.nama}</h4>
-              <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem;">
+            <div style="flex: 1; min-width: 0; word-break: break-word; overflow-wrap: break-word;">
+              <span style="background: rgba(2, 132, 199, 0.15); color: #0284C7; font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">Sekretaris Jurusan</span>
+              <h4 style="font-size: 1.15rem; color: var(--color-navy-primary); margin: 0.4rem 0 0.15rem 0; font-weight: 800; word-break: break-word;">${sekjur.nama}${sekjur.gelar ? ', ' + sekjur.gelar : ''}</h4>
+              <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem; word-break: break-word;">
                 <span>NIP: ${sekjur.nidn}</span>
-                <span style="color: var(--color-blue-accent); font-weight: 600;">${sekjur.email}</span>
+                <span style="color: var(--color-blue-accent); font-weight: 600; word-break: break-all; overflow-wrap: anywhere;">${sekjur.email}</span>
               </div>
               ${isAdmin ? `<button class="btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.7rem; margin-top: 0.4rem;" onclick="window.changeDosenPhoto('dsn-sekjur')">Ubah Foto</button>` : ''}
             </div>
