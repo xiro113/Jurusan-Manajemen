@@ -596,9 +596,9 @@ class App {
         </div>
 
         <!-- Tier 1: Pimpinan Utama (Kajur & Sekjur) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; max-width: 880px; margin: 0 auto 2.5rem auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.75rem; max-width: 880px; margin: 0 auto 2.5rem auto;">
           <!-- Card Kajur -->
-          <div style="background: #FFF; border: 2px solid rgba(212, 175, 55, 0.5); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden;">
+          <div style="background: #FFF; border: 2px solid rgba(212, 175, 55, 0.5); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; gap: 1.25rem; align-items: center; box-shadow: 0 12px 30px rgba(15, 41, 66, 0.08); position: relative; overflow: hidden; flex-wrap: wrap;">
             <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
             <img src="${kajurFoto}" alt="${kajur.nama}" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--color-gold-primary); flex-shrink: 0; box-shadow: 0 4px 12px rgba(212,175,55,0.3); cursor: pointer;" onclick="window.previewAndDownloadPhoto('${kajurFoto}', '${kajur.nama}')" title="Klik untuk memperbesar & mengunduh foto">
             <div>
@@ -629,7 +629,7 @@ class App {
         </div>
 
         <!-- Tier 2: Koordinator Program Studi (4 Cards Side-by-Side in 1 Row) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.15rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 1.15rem;">
           ${coordList.map(c => `
             <div style="background: #FFF; border: 1px solid rgba(226, 232, 240, 0.9); border-radius: var(--radius-lg); padding: 1.35rem; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 6px 18px rgba(15, 41, 66, 0.05); transition: var(--transition-fast);">
               <div style="position: relative; margin-bottom: 0.85rem;">
@@ -663,7 +663,7 @@ class App {
           <!-- Section Pimpinan & Koordinator -->
           ${this.getLeadershipSectionHTML()}
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem;">
             <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 8px 20px rgba(0,0,0,0.04);">
               <h3 style="margin-bottom: 1rem; color: var(--color-navy-primary);">Visi Jurusan</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Menjadi Jurusan Manajemen yang terkemuka dalam penyelenggaraan pendidikan, penelitian, dan pengabdian masyarakat di bidang manajemen digital serta kewirausahaan pada tahun 2030.</p>
@@ -905,7 +905,7 @@ class App {
         </div>
 
         <div class="container" style="margin-top: -2.5rem; position: relative; z-index: 10;">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
             <div style="background: #FFF; padding: 1.5rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;">
               <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(15, 41, 66, 0.08); color: var(--color-navy-primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; flex-shrink: 0;">🎓</div>
               <div>
@@ -930,7 +930,7 @@ class App {
           </div>
 
           <!-- Section Grid 2 Kolom: Visi Misi & Profil Koordinator -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
             
             <!-- Visi & Misi -->
             <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
@@ -979,7 +979,7 @@ class App {
               <span style="background: rgba(212, 175, 55, 0.15); color: #B59325; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Pilihan Keahlian</span>
               <h3 style="color: var(--color-navy-primary); font-size: 1.4rem; font-weight: 800; margin-top: 0.4rem;">Konsentrasi & Peminatan Bidang Utama</h3>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.25rem;">
               ${details.peminatan.map(pem => `
                 <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; transition: var(--transition-fast);">
                   <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.35;">${pem.nama}</h4>
@@ -995,7 +995,7 @@ class App {
               <span style="background: var(--color-gold-primary); color: var(--color-navy-dark); font-size: 0.75rem; font-weight: 900; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Prospek Kelulusan</span>
               <h3 style="color: #FFF; font-size: 1.5rem; font-weight: 900; margin-top: 0.4rem;">Peluang Karir & Profil Alumni</h3>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 1rem;">
               ${details.karir.map(k => `
                 <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 1.1rem; border-radius: var(--radius-lg); text-align: center; font-size: 0.9rem; font-weight: 800; color: #FFF; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                   <span>🎯</span> ${k}
@@ -1010,7 +1010,7 @@ class App {
               <span style="background: rgba(2, 132, 199, 0.1); color: var(--color-blue-accent); font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Pengajar Professional</span>
               <h3 style="color: var(--color-navy-primary); font-size: 1.4rem; font-weight: 800; margin-top: 0.4rem;">Dosen Pengampu ${p.nama}</h3>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.25rem;">
               ${prodiDosen.length ? prodiDosen.map(d => {
                 let dFoto = d.foto_url || '';
                 if (dFoto && !dFoto.startsWith('http') && !dFoto.startsWith('IMAGE/') && !dFoto.startsWith('/')) {
@@ -1153,7 +1153,7 @@ class App {
               <span class="section-tag">Status Real-Time Pimpinan</span>
               <h2 class="section-title">Monitoring Keberadaan Pimpinan Jurusan Hari Ini</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.75rem;">
               ${statusCardsHTML}
             </div>
           </div>
@@ -1181,7 +1181,7 @@ class App {
                 ${isAdmin ? `<button class="btn-primary" id="btn-open-add-dosen">+ Tambah Dosen</button>` : ''}
               </div>
             </div>
-            <div id="dosen-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem;">
+            <div id="dosen-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.5rem;">
               ${cards.length ? cards : `<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: #F8FAFC; border-radius: var(--radius-lg); color: #94A3B8;">Tidak ada data dosen yang sesuai dengan pencarian.</div>`}
             </div>
           </div>
@@ -1279,7 +1279,7 @@ class App {
             ${isAdmin && full ? `<div style="margin-top: 1.25rem;"><button class="btn-gold" id="btn-open-add-news">+ Terbitkan Pengumuman Baru</button></div>` : ''}
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.75rem;">
             ${cards.length ? cards : `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem; background: #FFF; border-radius: var(--radius-xl); border: 1px dashed var(--border-color);">Belum ada berita atau pengumuman yang diterbitkan.</div>`}
           </div>
         </div>
@@ -1294,7 +1294,7 @@ class App {
           <span class="section-tag">Hubungi Kami</span>
           <h2 class="section-title">Sekretariat Jurusan Manajemen FEB UTM</h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem;">
           <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
             <h3 style="color: var(--color-navy-primary); margin-bottom: 1.25rem;">Informasi Alamat</h3>
             <p style="color: var(--text-muted); margin-bottom: 1rem;"><strong>Gedung Fakultas Ekonomi dan Bisnis (FEB) Lt. 2</strong><br>Universitas Trunojoyo Madura<br>Jl. Raya Telang, PO. BOX 2 Kamal, Bangkalan - Jawa Timur (69162)</p>
@@ -1484,7 +1484,7 @@ class App {
             <span class="section-tag">Status Real-Time Pimpinan</span>
             <h2 class="section-title">Monitoring Keberadaan Pimpinan Jurusan Hari Ini</h2>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.75rem;">
             ${statusCardsHTML}
           </div>
         </div>
@@ -1656,7 +1656,7 @@ class App {
         </div>
 
         <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
-          <input type="text" id="admin-doc-search" placeholder="Cari Nama, NIM, No. Berkas, Kode Tracking..." value="${search}" style="flex: 1; min-width: 240px; padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem;" onkeyup="window.filterAdminDocs()">
+          <input type="text" id="admin-doc-search" placeholder="Cari Nama, NIM, No. Berkas, Kode Tracking..." value="${search}" style="flex: 1; min-width: 140px; width: 100%; padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem;" onkeyup="window.filterAdminDocs()">
           <select id="admin-doc-status-filter" style="padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem;" onchange="window.filterAdminDocs()">
             <option value="">-- Semua Status --</option>
             <option value="Diterima" ${filterStatus === 'Diterima' ? 'selected' : ''}>Diterima</option>
@@ -1929,7 +1929,7 @@ class App {
 
     footer.innerHTML = `
       <footer style="background: var(--color-navy-dark); color: #94A3B8; padding: 4rem 0 2rem 0; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.08);">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
           <div>
             <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
               <img src="IMAGE/LOGO UTM.png" alt="Logo UTM" style="height: 54px; width: auto; object-fit: contain;">

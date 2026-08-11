@@ -601,7 +601,10 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
 }
 
 .table-toolbar {
@@ -858,14 +861,15 @@
     margin-right: 0;
     padding: 0;
     gap: 0.75rem;
+    max-width: 100%;
   }
 
   .brand-logo {
-    height: 52px;
+    height: 48px;
   }
 
   .brand-divider {
-    height: 38px;
+    height: 36px;
   }
 
   .brand-title {
@@ -899,6 +903,7 @@
 
   .nav-actions {
     margin-left: auto;
+    flex-wrap: wrap;
   }
 
   /* Responsive Hero & Stats Carousel on Mobile/Tablet */
@@ -941,6 +946,11 @@
 }
 
 @media (max-width: 640px) {
+  .navbar-inner {
+    padding: 0.6rem 0.75rem;
+    gap: 0.5rem;
+  }
+
   .role-bar-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -959,22 +969,40 @@
   }
 
   .brand-title {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+    letter-spacing: 0;
+  }
+
+  .brand-sub-gold {
+    font-size: 0.58rem;
   }
 
   .brand-logo {
-    height: 44px;
+    height: 38px;
   }
 
   .brand-divider {
-    height: 32px;
+    height: 28px;
+  }
+
+  .nav-actions {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
   }
 
   .nav-actions .btn-primary,
   .nav-actions .btn-gold,
   .nav-actions .btn-outline {
-    padding: 0.45rem 0.75rem;
-    font-size: 0.8rem;
+    flex: 1 1 auto;
+    min-width: 110px;
+    justify-content: center;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   .hero-title {
@@ -987,7 +1015,7 @@
 
   .stat-card {
     flex: 0 0 160px;
-    min-width: 150px;
+    min-width: 140px;
     padding: 1rem;
   }
 
@@ -997,5 +1025,50 @@
 
   .stat-label {
     font-size: 0.75rem;
+  }
+
+  .table-toolbar {
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-card {
+    border-radius: var(--radius-lg);
+    max-height: 92vh;
+  }
+
+  .modal-header {
+    padding: 1rem 1.15rem;
+  }
+
+  .modal-body {
+    padding: 1.15rem 1rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-gate-screen {
+    padding: 1.5rem 0.85rem !important;
+  }
+
+  .login-gate-screen > div {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 18px !important;
   }
 }
