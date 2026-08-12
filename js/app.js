@@ -945,6 +945,32 @@ class App {
               deskripsi: "Mampu menganalisis fenomena manajemen pemerintahan dan bisnis dalam proses formulasi hingga implementasi kebijakan publik untuk menyelesaikan masalah nyata di masyarakat."
             }
           ]
+        },
+        tujuan_prodi: {
+          judul: "TUJUAN PROGRAM STUDI",
+          subjudul: "Sebagai acuan arah pelaksanaan, Program Studi Doktor Ilmu Manajemen menyusun tujuan berikut untuk menghasilkan institusi pendidikan yang berkualitas:",
+          poin: [
+            {
+              nama: "Pusat Studi Berkualitas",
+              deskripsi: "Menjadi Pusat Studi Doktor Ilmu Manajemen berbasis kearifan lokal yang berkualitas melalui program tri darma perguruan tinggi berbasis pada manajemen dan kearifan local."
+            },
+            {
+              nama: "Pusat Riset Bereputasi",
+              deskripsi: "Menjad Program Studi Doktor Ilmu Manajemen Oberbasis kearifan lokal yang berperan sebagai pusat penelitian dan publikasi karya ilmiah bidang manajemen yang bereputasi."
+            },
+            {
+              nama: "Kontribusi Ilmu Manajemen",
+              deskripsi: "Menjadi Program Studi Doktor Ilmu Manajemen berbasis kearifan lokal yang berkontribusi dalam penciptaan dan pengembangan ilmu manajemen yang terkemuka di Indonesia dan diakui dunia internasional."
+            },
+            {
+              nama: "Laboratorium Solusi Manajemen",
+              deskripsi: "Menjadikan Program Studi Doktor Ilmu Manajemen Oberbasis kearifan lokal sebagai laboratorium penyelesaian masalah manajemen dan kearifan lokal, baik pada level lokal/wilayah, nasional maupun internasional."
+            },
+            {
+              nama: "Kualitas Lulusan",
+              deskripsi: "Menghasilkan lulusan yang berkualitas, beretika dan bermoral dalam penguasaan, penerapan dan pengembangan ilmu manajemen."
+            }
+          ]
         }
       }
     };
@@ -1029,18 +1055,36 @@ class App {
                 </div>
               </div>
 
-              <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); flex: 1;">
-                <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-                  🏢 Fasilitas & Laboratorium Unggulan
-                </h4>
-                <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                  ${details.fasilitas.map(f => `
-                    <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--color-navy-primary); background: #F8FAFC; padding: 0.6rem 0.85rem; border-radius: 8px; border: 1px solid #E2E8F0; font-weight: 700;">
-                      <span style="color: #10B981;">✓</span> ${f}
-                    </div>
-                  `).join('')}
+              ${details.tujuan_prodi ? `
+                <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); flex: 1;">
+                  <span style="background: rgba(15, 41, 66, 0.08); color: var(--color-navy-primary); font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Arah Pelaksanaan</span>
+                  <h4 style="color: var(--color-navy-primary); font-size: 1.15rem; font-weight: 800; margin: 0.4rem 0 0.4rem 0;">
+                    🎯 ${details.tujuan_prodi.judul}
+                  </h4>
+                  <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">${details.tujuan_prodi.subjudul}</p>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    ${details.tujuan_prodi.poin.map(tp => `
+                      <div style="background: #F8FAFC; padding: 0.75rem 0.95rem; border-radius: 8px; border: 1px solid #E2E8F0; border-left: 3px solid var(--color-gold-primary);">
+                        <h5 style="margin: 0 0 0.25rem 0; color: var(--color-navy-primary); font-size: 0.88rem; font-weight: 800;">${tp.nama}</h5>
+                        <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">${tp.deskripsi}</p>
+                      </div>
+                    `).join('')}
+                  </div>
                 </div>
-              </div>
+              ` : `
+                <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); flex: 1;">
+                  <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                    🏢 Fasilitas & Laboratorium Unggulan
+                  </h4>
+                  <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    ${details.fasilitas.map(f => `
+                      <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--color-navy-primary); background: #F8FAFC; padding: 0.6rem 0.85rem; border-radius: 8px; border: 1px solid #E2E8F0; font-weight: 700;">
+                        <span style="color: #10B981;">✓</span> ${f}
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              `}
             </div>
 
           </div>
