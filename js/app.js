@@ -901,7 +901,33 @@ class App {
           'Expert Policy Advisor / Staf Ahli Kementerian & BUMN',
           'Senior Board of Commissioner / Board of Directors'
         ],
-        fasilitas: ['Doctoral Research Center', 'High-Performance Econometric Lab', 'International Defense Dissertation Hall']
+        fasilitas: ['Doctoral Research Center', 'High-Performance Econometric Lab', 'International Defense Dissertation Hall'],
+        keunggulan_kearifan_lokal: {
+          judul: "KEUNGGULAN & KEARIFAN LOKAL",
+          subjudul: "Keunikan utama dari Program Doktor Ilmu Manajemen UTM adalah pendekatan komprehensif pada “Ilmu Manajemen Berbasis Kearifan Lokal Madura”. Nilai-nilai kearifan lokal yang kami jadikan landasan etika akademik dan praktik kepemimpinan meliputi:",
+          poin: [
+            {
+              nama: "Bhuppa’ Bhabbhu’ Ghuru Rato",
+              deskripsi: "Menanamkan penghormatan yang tinggi kepada pilar-pilar penyangga kebudayaan, mengandung pengertian adanya hierarki figur yang harus dihormati dan dipatuhi dalam kehidupan sosial-budaya maupun organisasi berkelanjutan."
+            },
+            {
+              nama: "Rampa’ Naong, Baringin Korong",
+              deskripsi: "Berkontribusi bagi terciptanya masyarakat dan bumi yang hidup damai, harmonis, dan sejahtera (inklusif) melalui kegiatan Tri Dharma Perguruan Tinggi yang berdampak langsung pada masyarakat."
+            },
+            {
+              nama: "Lakonnah Lakonèh, Kennenggah Kennengngèh",
+              deskripsi: "Mendorong profesionalisme yang presisi, di mana sumber daya manusia melakukan tugas pada bidangnya masing-masing sesuai dengan kompetensinya secara proporsional."
+            },
+            {
+              nama: "Kar-karkar Colpè’ & Atolo Nge’ras Mandi",
+              deskripsi: "Menanamkan etos kerja keras, ketekunan, kesabaran, serta efisiensi dalam menghargai waktu untuk terus ulet melakukan kegiatan riset dan inovasi yang bermanfaat."
+            },
+            {
+              nama: "Abhântal Ombâ’ Asapo’ Angèn",
+              deskripsi: "Mengilhami konsep ketangguhan dan keberanian menghadapi tantangan global dengan bekerja keras untuk mempertahankan dan mengembangkan hidup sebagai fondasi daya saing internasional."
+            }
+          ]
+        }
       }
     };
 
@@ -1016,6 +1042,28 @@ class App {
               `).join('')}
             </div>
           </div>
+
+          <!-- Keunggulan & Kearifan Lokal (S3) -->
+          ${details.keunggulan_kearifan_lokal ? `
+            <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 2.5rem;">
+              <div style="margin-bottom: 1.5rem;">
+                <span style="background: rgba(212, 175, 55, 0.18); color: #B59325; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Nilai Luhur Kebudayaan</span>
+                <h3 style="color: var(--color-navy-primary); font-size: 1.45rem; font-weight: 800; margin: 0.4rem 0 0.5rem 0;">${details.keunggulan_kearifan_lokal.judul}</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">${details.keunggulan_kearifan_lokal.subjudul}</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                ${details.keunggulan_kearifan_lokal.poin.map((poin, idx) => `
+                  <div style="background: #F8FAFC; border-left: 4px solid var(--color-gold-primary); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 1.25rem 1.5rem; border-top: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+                    <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.6rem;">
+                      <span style="background: var(--color-navy-primary); color: var(--color-gold-primary); width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 900; flex-shrink: 0;">${idx + 1}</span>
+                      ${poin.nama}
+                    </h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.65; padding-left: 2.1rem;">${poin.deskripsi}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
 
           <!-- Peluang Karir Alumni -->
           <div style="background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-dark) 100%); color: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
