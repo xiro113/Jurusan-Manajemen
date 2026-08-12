@@ -1306,7 +1306,6 @@ class App {
                 </div>
               ` : ''}
             </div>
-          `
           ` : `
             <div style="background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-dark) 100%); color: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
               <div style="margin-bottom: 1.5rem; text-align: center;">
