@@ -512,22 +512,28 @@ class App {
             Membentuk pemimpin masa depan yang inovatif, beretika, dan berdaya saing global.
           </p>
 
-          <div class="hero-stats">
-            <div class="stat-card">
-              <div class="stat-number">4</div>
-              <div class="stat-label">Program Studi (D3, S1, S2, S3)</div>
+          <div class="hero-stats-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="scroll-hint-mobile">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+              <span>Geser untuk melihat kartu selengkapnya ➔</span>
             </div>
-            <div class="stat-card">
-              <div class="stat-number">Unggul</div>
-              <div class="stat-label">Akreditasi LAMEMBA (D3,S1,S2)</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">42+</div>
-              <div class="stat-label">Dosen Berpengalaman & Pakar</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">${formattedTotal}</div>
-              <div class="stat-label">Mahasiswa Aktif</div>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Program Studi (D3, S1, S2, S3)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Unggul</div>
+                <div class="stat-label">Akreditasi LAMEMBA (D3,S1,S2)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">42+</div>
+                <div class="stat-label">Dosen Berpengalaman & Pakar</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${formattedTotal}</div>
+                <div class="stat-label">Mahasiswa Aktif</div>
+              </div>
             </div>
           </div>
 
