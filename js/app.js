@@ -971,6 +971,34 @@ class App {
               deskripsi: "Menghasilkan lulusan yang berkualitas, beretika dan bermoral dalam penguasaan, penerapan dan pengembangan ilmu manajemen."
             }
           ]
+        },
+        kurikulum: {
+          judul: "KURIKULUM PROGRAM STUDI DOKTOR ILMU MANAJEMEN",
+          deskripsi: "Struktur Kurikulum Program Doktor Ilmu Manajemen (DIM) dirancang dengan total beban studi 45 SKS yang diproyeksikan dapat ditempuh dalam 6 semester. Kurikulum ini memadukan penguasaan teori manajemen dengan riset mendalam berbasis kearifan lokal.",
+          semester1: {
+            nama: "Semester 1 : Penguatan Fondasi Keilmuan",
+            totalSks: 9,
+            matakuliah: [
+              {
+                kode: "PDIM001",
+                nama: "Filsafat Ilmu Manajemen Kearifan Lokal",
+                namaEn: "Philosophy of Management Science and Local Wisdom",
+                sks: 3
+              },
+              {
+                kode: "PDIM002",
+                nama: "Metode Penelitian Ilmu Manajemen Kuantitatif dan Kualitatif",
+                namaEn: "Quantitative & Qualitative Research Methods",
+                sks: 3
+              },
+              {
+                kode: "PDIM004",
+                nama: "Manajemen Kearifan Lokal",
+                namaEn: "Local Wisdom Management",
+                sks: 3
+              }
+            ]
+          }
         }
       }
     };
@@ -1150,20 +1178,66 @@ class App {
             </div>
           ` : ''}
 
-          <!-- Peluang Karir Alumni -->
-          <div style="background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-dark) 100%); color: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
-            <div style="margin-bottom: 1.5rem; text-align: center;">
-              <span style="background: var(--color-gold-primary); color: var(--color-navy-dark); font-size: 0.75rem; font-weight: 900; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Prospek Kelulusan</span>
-              <h3 style="color: #FFF; font-size: 1.5rem; font-weight: 900; margin-top: 0.4rem;">Peluang Karir & Profil Alumni</h3>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 1rem;">
-              ${details.karir.map(k => `
-                <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 1.1rem; border-radius: var(--radius-lg); text-align: center; font-size: 0.9rem; font-weight: 800; color: #FFF; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                  <span>🎯</span> ${k}
+          <!-- Kurikulum Program Studi / Peluang Karir -->
+          ${details.kurikulum ? `
+            <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 2.5rem;">
+              <div style="margin-bottom: 1.5rem;">
+                <span style="background: rgba(15, 41, 66, 0.08); color: var(--color-navy-primary); font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Struktur Akademik</span>
+                <h3 style="color: var(--color-navy-primary); font-size: 1.45rem; font-weight: 800; margin: 0.4rem 0 0.5rem 0;">${details.kurikulum.judul}</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">${details.kurikulum.deskripsi}</p>
+              </div>
+
+              <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; overflow: hidden;">
+                <h4 style="color: var(--color-navy-primary); font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="color: var(--color-gold-primary);">📖</span> ${details.kurikulum.semester1.nama}
+                </h4>
+
+                <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                  <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; background: #FFF; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <thead>
+                      <tr style="background: var(--color-navy-primary); color: #FFF;">
+                        <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; width: 130px; border-bottom: 2px solid var(--color-gold-primary);">Kode MK</th>
+                        <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; border-bottom: 2px solid var(--color-gold-primary);">Nama Mata Kuliah</th>
+                        <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; text-align: center; width: 100px; border-bottom: 2px solid var(--color-gold-primary);">SKS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${details.kurikulum.semester1.matakuliah.map(mk => `
+                        <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s ease;">
+                          <td style="padding: 0.9rem 1.15rem; font-weight: 800; color: var(--color-navy-primary); font-family: monospace; font-size: 0.92rem;">${mk.kode}</td>
+                          <td style="padding: 0.9rem 1.15rem;">
+                            <div style="font-weight: 800; color: var(--color-navy-primary); font-size: 0.95rem;">${mk.nama}</div>
+                            <div style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.15rem;">${mk.namaEn}</div>
+                          </td>
+                          <td style="padding: 0.9rem 1.15rem; text-align: center; font-weight: 800; color: var(--color-gold-primary); font-size: 1rem;">${mk.sks}</td>
+                        </tr>
+                      `).join('')}
+                    </tbody>
+                    <tfoot>
+                      <tr style="background: rgba(15, 41, 66, 0.05); font-weight: 900; border-top: 2px solid #CBD5E1;">
+                        <td colspan="2" style="padding: 0.9rem 1.15rem; color: var(--color-navy-primary); font-size: 0.95rem; text-align: right;">Total SKS Semester 1:</td>
+                        <td style="padding: 0.9rem 1.15rem; text-align: center; color: var(--color-navy-primary); font-size: 1.1rem; font-weight: 900; background: rgba(212, 175, 55, 0.15);">${details.kurikulum.semester1.totalSks}</td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
-              `).join('')}
+              </div>
             </div>
-          </div>
+          ` : `
+            <div style="background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-dark) 100%); color: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
+              <div style="margin-bottom: 1.5rem; text-align: center;">
+                <span style="background: var(--color-gold-primary); color: var(--color-navy-dark); font-size: 0.75rem; font-weight: 900; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Prospek Kelulusan</span>
+                <h3 style="color: #FFF; font-size: 1.5rem; font-weight: 900; margin-top: 0.4rem;">Peluang Karir & Profil Alumni</h3>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 1rem;">
+                ${details.karir.map(k => `
+                  <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 1.1rem; border-radius: var(--radius-lg); text-align: center; font-size: 0.9rem; font-weight: 800; color: #FFF; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <span>🎯</span> ${k}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `}
 
           <!-- Direktori Dosen Pengampu Prodi Ini -->
           <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
