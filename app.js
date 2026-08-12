@@ -927,6 +927,28 @@ class App {
               deskripsi: "Mengilhami konsep ketangguhan dan keberanian menghadapi tantangan global dengan bekerja keras untuk mempertahankan dan mengembangkan hidup sebagai fondasi daya saing internasional."
             }
           ]
+        },
+        profil_lulusan: {
+          judul: "PROFIL LULUSAN",
+          subjudul: "Lulusan Program Doktor Ilmu Manajemen FEB UTM dipersiapkan untuk mengemban peran-peran strategis tingkat tinggi:",
+          poin: [
+            {
+              peran: "Akademisi",
+              deskripsi: "Menjadi tenaga pendidik di perguruan tinggi yang unggul dalam pengajaran dan mampu mengembangkan karir dosen melalui penelitian bereputasi internasional."
+            },
+            {
+              peran: "Peneliti",
+              deskripsi: "Mampu merancang dan mengeksekusi penelitian inovatif yang peka pada masalah manajemen strategis, tata kelola, dan kebijakan yang sejalan dengan prioritas nasional."
+            },
+            {
+              peran: "Praktisi & Pengusaha",
+              deskripsi: "Menjadi pimpinan organisasi (publik maupun privat) yang mumpuni dalam perencanaan strategis dan pengawasan untuk menciptakan organisasi yang berkelanjutan (sustainable)."
+            },
+            {
+              peran: "Pengambil Kebijakan",
+              deskripsi: "Mampu menganalisis fenomena manajemen pemerintahan dan bisnis dalam proses formulasi hingga implementasi kebijakan publik untuk menyelesaikan masalah nyata di masyarakat."
+            }
+          ]
         }
       }
     };
@@ -1059,6 +1081,27 @@ class App {
                       ${poin.nama}
                     </h4>
                     <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.65; padding-left: 2.1rem;">${poin.deskripsi}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Profil Lulusan (S3) -->
+          ${details.profil_lulusan ? `
+            <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 2.5rem;">
+              <div style="margin-bottom: 1.5rem;">
+                <span style="background: rgba(15, 41, 66, 0.08); color: var(--color-navy-primary); font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Kompetensi Utama</span>
+                <h3 style="color: var(--color-navy-primary); font-size: 1.45rem; font-weight: 800; margin: 0.4rem 0 0.5rem 0;">${details.profil_lulusan.judul}</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">${details.profil_lulusan.subjudul}</p>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1.25rem;">
+                ${details.profil_lulusan.poin.map(p => `
+                  <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; transition: var(--transition-fast); display: flex; flex-direction: column;">
+                    <h4 style="color: var(--color-navy-primary); font-size: 1.1rem; font-weight: 800; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.55rem;">
+                      <span style="color: var(--color-gold-primary); font-size: 1.2rem;">👨‍🎓</span> ${p.peran}
+                    </h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.6;">${p.deskripsi}</p>
                   </div>
                 `).join('')}
               </div>
