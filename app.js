@@ -998,6 +998,51 @@ class App {
                 sks: 3
               }
             ]
+          },
+          semester2: {
+            nama: "Semester 2 : Peminatan / Konsentrasi Studi",
+            kelompok: [
+              {
+                konsentrasi: "Minat Studi Manajemen SDM",
+                konsentrasiEn: "HRM Specialization",
+                matakuliah: [
+                  { kode: "PDIM009", nama: "Manajemen SDM Kearifan Lokal", sks: 3 },
+                  { kode: "PDIM010", nama: "Seminar Tema SDM", sks: 3 }
+                ]
+              },
+              {
+                konsentrasi: "Minat Studi Manajemen Pemasaran",
+                konsentrasiEn: "Marketing Specialization",
+                matakuliah: [
+                  { kode: "PDIM005", nama: "Manajemen Pemasaran Kearifan Lokal", sks: 3 },
+                  { kode: "PDIM006", nama: "Seminar Tema Pemasaran", sks: 3 }
+                ]
+              },
+              {
+                konsentrasi: "Minat Studi Manajemen Keuangan",
+                konsentrasiEn: "Finance Specialization",
+                matakuliah: [
+                  { kode: "PDIM007", nama: "Manajemen Keuangan Kearifan Lokal", sks: 3 },
+                  { kode: "PDIM008", nama: "Seminar Tema Keuangan", sks: 3 }
+                ]
+              },
+              {
+                konsentrasi: "Minat Studi Manajemen Strategik & Inovasi",
+                konsentrasiEn: "Strategic & Innovation Specialization",
+                matakuliah: [
+                  { kode: "PDIM011", nama: "Manajemen Stratejik Kearifan Lokal", sks: 3 },
+                  { kode: "PDIM012", nama: "Seminar Tema Manajemen Stratejik", sks: 3 }
+                ]
+              },
+              {
+                konsentrasi: "Minat Studi Manajemen Kearifan Lokal",
+                konsentrasiEn: "Local Wisdom Management Specialization",
+                matakuliah: [
+                  { kode: "PDIM013", nama: "Inovasi Sosial & Kepemimpinan Berbasis Kearifan Lokal", sks: 3 },
+                  { kode: "PDIM014", nama: "Seminar Tema Manajemen Kearifan Lokal", sks: 3 }
+                ]
+              }
+            ]
           }
         }
       }
@@ -1222,7 +1267,46 @@ class App {
                   </table>
                 </div>
               </div>
+
+              ${details.kurikulum.semester2 ? `
+                <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 1.5rem; overflow: hidden;">
+                  <h4 style="color: var(--color-navy-primary); font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="color: var(--color-gold-primary);">🎯</span> ${details.kurikulum.semester2.nama}
+                  </h4>
+
+                  <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; background: #FFF; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                      <thead>
+                        <tr style="background: var(--color-navy-primary); color: #FFF;">
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; width: 260px; border-bottom: 2px solid var(--color-gold-primary);">Konsentrasi</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; width: 120px; border-bottom: 2px solid var(--color-gold-primary);">Kode MK</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; border-bottom: 2px solid var(--color-gold-primary);">Matakuliah</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; text-align: center; width: 80px; border-bottom: 2px solid var(--color-gold-primary);">SKS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${details.kurikulum.semester2.kelompok.map((group, gIdx) => `
+                          ${group.matakuliah.map((mk, mkIdx) => `
+                            <tr style="border-bottom: ${mkIdx === group.matakuliah.length - 1 ? '2px solid #CBD5E1' : '1px solid #E2E8F0'}; background: ${gIdx % 2 === 0 ? '#FFF' : '#FAFAFA'};">
+                              ${mkIdx === 0 ? `
+                                <td rowspan="${group.matakuliah.length}" style="padding: 0.9rem 1.15rem; vertical-align: top; border-right: 1px solid #E2E8F0; background: ${gIdx % 2 === 0 ? 'rgba(15, 41, 66, 0.02)' : 'rgba(15, 41, 66, 0.04)'};">
+                                  <div style="font-weight: 800; color: var(--color-navy-primary); font-size: 0.92rem; line-height: 1.35;">${group.konsentrasi}</div>
+                                  <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.2rem;">${group.konsentrasiEn}</div>
+                                </td>
+                              ` : ''}
+                              <td style="padding: 0.85rem 1.15rem; font-weight: 800; color: var(--color-navy-primary); font-family: monospace; font-size: 0.9rem;">${mk.kode}</td>
+                              <td style="padding: 0.85rem 1.15rem; font-weight: 700; color: var(--color-navy-primary); font-size: 0.92rem;">${mk.nama}</td>
+                              <td style="padding: 0.85rem 1.15rem; text-align: center; font-weight: 800; color: var(--color-gold-primary); font-size: 0.95rem;">${mk.sks}</td>
+                            </tr>
+                          `).join('')}
+                        `).join('')}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ` : ''}
             </div>
+          `
           ` : `
             <div style="background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-dark) 100%); color: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
               <div style="margin-bottom: 1.5rem; text-align: center;">
