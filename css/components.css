@@ -863,7 +863,41 @@
   animation: fadeIn 0.2s ease-out;
 }
 
-/* --- Responsive Header & Mobile Navigation Styles --- */
+/* Mobile Scroll Hint Indicator - strictly hidden on desktop/laptop */
+.scroll-hint-mobile {
+  display: none !important;
+}
+
+/* --- Desktop & Laptop PC Overrides (min-width: 769px) --- */
+@media (min-width: 769px) {
+  .scroll-hint-mobile {
+    display: none !important;
+  }
+  .nav-menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    overflow-x: visible !important;
+    white-space: normal !important;
+  }
+  .role-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+  }
+}
+
+/* --- Mobile Navigation Styles (max-width: 768px) --- */
 @media (max-width: 768px) {
   .navbar-inner {
     height: auto;
@@ -921,7 +955,6 @@
     flex-wrap: wrap;
   }
 
-  /* Responsive Hero & Stats Carousel on Mobile/Tablet */
   .hero {
     padding: 3.5rem 0 4.5rem 0;
     min-height: auto;
@@ -940,12 +973,9 @@
     font-size: 0.98rem;
     margin-bottom: 1.5rem;
   }
-
-/* Mobile Scroll Hint Indicator - strictly for mobile phone viewports (<= 640px) */
-.scroll-hint-mobile {
-  display: none !important;
 }
 
+/* --- Mobile Phones Only (max-width: 640px) --- */
 @media (max-width: 640px) {
   .scroll-hint-mobile {
     display: inline-flex !important;
@@ -981,20 +1011,7 @@
     scroll-snap-align: start;
     white-space: normal;
   }
-}
 
-@keyframes pulseSwipeHint {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translateX(5px);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 640px) {
   .hero-title {
     font-size: 2.25rem;
     margin-bottom: 1.75rem;
@@ -1059,10 +1076,6 @@
     white-space: nowrap;
   }
 
-  .hero-title {
-    font-size: 1.75rem;
-  }
-
   .hero-stats {
     gap: 0.75rem;
   }
@@ -1113,6 +1126,17 @@
   .data-table td {
     padding: 0.75rem 0.85rem;
     font-size: 0.82rem;
+  }
+}
+
+@keyframes pulseSwipeHint {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 1;
   }
 }
 
