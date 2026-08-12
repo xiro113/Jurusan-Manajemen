@@ -941,12 +941,12 @@
     margin-bottom: 1.5rem;
   }
 
-/* Mobile Scroll Hint Indicator - strictly for mobile phone viewports */
+/* Mobile Scroll Hint Indicator - strictly for mobile phone viewports (<= 640px) */
 .scroll-hint-mobile {
   display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .scroll-hint-mobile {
     display: inline-flex !important;
     align-items: center;
@@ -992,7 +992,6 @@
     transform: translateX(5px);
     opacity: 1;
   }
-}
 }
 
 @media (max-width: 640px) {
