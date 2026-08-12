@@ -515,7 +515,7 @@ class App {
           <div class="hero-stats-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
             <div class="scroll-hint-mobile">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
-              <span>Geser untuk melihat kartu selengkapnya ➔</span>
+              <span>Geser ➔</span>
             </div>
             <div class="hero-stats">
               <div class="stat-card">
