@@ -48,7 +48,7 @@ export const INITIAL_PRODI = [
     koordinator_gelar: "Dr., S.E., M.Si.",
     koordinator_jabatan: "Koordinator Prodi S3",
     foto_url: "IMAGE/Yahya.jpg",
-    deskripsi: "Program Doktoral Ilmu Manajemen menghasilkan akademisi, peneliti utama, dan pakar filosofis manajemen berwawasan global serta kontributif bagi keilmuan nasional.",
+    deskripsi: "Program Studi Doktor Ilmu Manajemen (DIM) Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura hadir sebagai pusat pendidikan lanjutan yang berfokus pada pengembangan ilmu manajemen yang tidak hanya berdaya saing global, tetapi juga mengakar kuat pada nilai-nilai luhur masyarakat lokal. Kami berkomitmen untuk mencetak pemimpin, akademisi, dan praktisi yang mampu mengintegrasikan teori manajemen modern dengan pendekatan inovasi sosial dan etika berbasis kearifan lokal.",
     akreditasi: "Baik Sekali",
     jumlah_mahasiswa: 65
   }
