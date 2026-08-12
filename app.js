@@ -1043,6 +1043,37 @@ class App {
                 ]
               }
             ]
+          },
+          semester3_6: {
+            nama: "Semester 3 – 6 : Riset dan Disertasi",
+            totalKeseluruhanSks: 45,
+            semesters: [
+              {
+                semesterLabel: "Semester 3",
+                matakuliah: [
+                  { kode: "PDIM015", nama: "Workshop on Writing Skill", namaEn: "Pilihan / Elective", sks: 0 },
+                  { kode: "PDIM901", nama: "Proposal", namaEn: "", sks: 6 }
+                ]
+              },
+              {
+                semesterLabel: "Semester 4",
+                matakuliah: [
+                  { kode: "PDIM902", nama: "Publikasi Artikel Ilmiah Internasional", namaEn: "International Scientific Publication", sks: 6 }
+                ]
+              },
+              {
+                semesterLabel: "Semester 5",
+                matakuliah: [
+                  { kode: "PDIM903", nama: "Seminar Hasil Disertasi", namaEn: "Dissertation Results Seminar", sks: 6 }
+                ]
+              },
+              {
+                semesterLabel: "Semester 6",
+                matakuliah: [
+                  { kode: "PDIM904", nama: "Disertasi", namaEn: "Dissertation", sks: 12 }
+                ]
+              }
+            ]
           }
         }
       }
@@ -1301,6 +1332,52 @@ class App {
                           `).join('')}
                         `).join('')}
                       </tbody>
+                    </table>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${details.kurikulum.semester3_6 ? `
+                <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 1.5rem; overflow: hidden;">
+                  <h4 style="color: var(--color-navy-primary); font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="color: var(--color-gold-primary);">🎓</span> ${details.kurikulum.semester3_6.nama}
+                  </h4>
+
+                  <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; background: #FFF; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                      <thead>
+                        <tr style="background: var(--color-navy-primary); color: #FFF;">
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; width: 140px; border-bottom: 2px solid var(--color-gold-primary);">Semester</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; width: 130px; border-bottom: 2px solid var(--color-gold-primary);">Kode MK</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; border-bottom: 2px solid var(--color-gold-primary);">Nama Mata Kuliah</th>
+                          <th style="padding: 0.85rem 1.15rem; font-size: 0.88rem; font-weight: 800; text-align: center; width: 90px; border-bottom: 2px solid var(--color-gold-primary);">SKS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${details.kurikulum.semester3_6.semesters.map((sem, sIdx) => `
+                          ${sem.matakuliah.map((mk, mkIdx) => `
+                            <tr style="border-bottom: ${mkIdx === sem.matakuliah.length - 1 ? '2px solid #CBD5E1' : '1px solid #E2E8F0'}; background: ${sIdx % 2 === 0 ? '#FFF' : '#FAFAFA'};">
+                              ${mkIdx === 0 ? `
+                                <td rowspan="${sem.matakuliah.length}" style="padding: 0.9rem 1.15rem; vertical-align: top; border-right: 1px solid #E2E8F0; background: ${sIdx % 2 === 0 ? 'rgba(15, 41, 66, 0.02)' : 'rgba(15, 41, 66, 0.04)'}; font-weight: 800; color: var(--color-navy-primary); font-size: 0.92rem;">
+                                  ${sem.semesterLabel}
+                                </td>
+                              ` : ''}
+                              <td style="padding: 0.85rem 1.15rem; font-weight: 800; color: var(--color-navy-primary); font-family: monospace; font-size: 0.9rem;">${mk.kode}</td>
+                              <td style="padding: 0.85rem 1.15rem;">
+                                <div style="font-weight: 800; color: var(--color-navy-primary); font-size: 0.93rem;">${mk.nama}</div>
+                                ${mk.namaEn ? `<div style="font-size: 0.81rem; color: var(--text-muted); font-style: italic; margin-top: 0.15rem;">${mk.namaEn}</div>` : ''}
+                              </td>
+                              <td style="padding: 0.85rem 1.15rem; text-align: center; font-weight: 800; color: var(--color-gold-primary); font-size: 0.98rem;">${mk.sks}</td>
+                            </tr>
+                          `).join('')}
+                        `).join('')}
+                      </tbody>
+                      <tfoot>
+                        <tr style="background: rgba(15, 41, 66, 0.05); font-weight: 900; border-top: 2px solid #CBD5E1;">
+                          <td colspan="3" style="padding: 0.95rem 1.15rem; color: var(--color-navy-primary); font-size: 0.98rem; text-align: right;">Total Keseluruhan SKS:</td>
+                          <td style="padding: 0.95rem 1.15rem; text-align: center; color: var(--color-navy-primary); font-size: 1.15rem; font-weight: 900; background: rgba(212, 175, 55, 0.2);">${details.kurikulum.semester3_6.totalKeseluruhanSks}</td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>
