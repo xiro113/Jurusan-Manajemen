@@ -941,14 +941,14 @@
     margin-bottom: 1.5rem;
   }
 
-/* Mobile Scroll Hint Indicator */
+/* Mobile Scroll Hint Indicator - strictly for mobile phone viewports */
 .scroll-hint-mobile {
-  display: none;
+  display: none !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .scroll-hint-mobile {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
