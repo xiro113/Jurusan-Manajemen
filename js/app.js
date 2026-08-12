@@ -890,11 +890,6 @@ class App {
           'Memfasilitasi penulisan disertasi bereputasi tinggi yang menembus publikasi Scopus Q1/Q2.',
           'Memberikan sumbangan konsep filosofis mutakhir bagi perumusan kebijakan bisnis dan regulasi ekonomi nasional.'
         ],
-        peminatan: [
-          { nama: 'Filsafat Teori Manajemen & Strategi Korporasi', ket: 'Pengembangan teori baru manajemen strategis, paradigma kepemimpinan transformatif, dan dinamika industri.' },
-          { nama: 'Ekonometrika Bisnis & Perilaku Keuangan Lanjutan', ket: 'Riset kuantitatif tingkat tinggi, teori portofolio makro finansial, dan pemodelan sistemik.' },
-          { nama: 'Manajemen Keberlanjutan & Kebijakan Publik Terpadu', ket: 'Environmental Social Governance (ESG), kebijakan pembangunan ekonomi makro, dan etika pasar.' }
-        ],
         karir: [
           'Guru Besar / Profesor & Academic Fellow',
           'Principal Scientist & Head of Research Institute',
@@ -1050,20 +1045,22 @@ class App {
           </div>
 
           <!-- Konsentrasi / Peminatan Bidang -->
-          <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 2.5rem;">
-            <div style="margin-bottom: 1.5rem;">
-              <span style="background: rgba(212, 175, 55, 0.15); color: #B59325; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Pilihan Keahlian</span>
-              <h3 style="color: var(--color-navy-primary); font-size: 1.4rem; font-weight: 800; margin-top: 0.4rem;">Konsentrasi & Peminatan Bidang Utama</h3>
+          ${details.peminatan && details.peminatan.length ? `
+            <div style="background: #FFF; padding: 2.25rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 2.5rem;">
+              <div style="margin-bottom: 1.5rem;">
+                <span style="background: rgba(212, 175, 55, 0.15); color: #B59325; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 4px; text-transform: uppercase;">Pilihan Keahlian</span>
+                <h3 style="color: var(--color-navy-primary); font-size: 1.4rem; font-weight: 800; margin-top: 0.4rem;">Konsentrasi & Peminatan Bidang Utama</h3>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.25rem;">
+                ${details.peminatan.map(pem => `
+                  <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; transition: var(--transition-fast);">
+                    <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.35;">${pem.nama}</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">${pem.ket}</p>
+                  </div>
+                `).join('')}
+              </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.25rem;">
-              ${details.peminatan.map(pem => `
-                <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; transition: var(--transition-fast);">
-                  <h4 style="color: var(--color-navy-primary); font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.35;">${pem.nama}</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">${pem.ket}</p>
-                </div>
-              `).join('')}
-            </div>
-          </div>
+          ` : ''}
 
           <!-- Keunggulan & Kearifan Lokal (S3) -->
           ${details.keunggulan_kearifan_lokal ? `
