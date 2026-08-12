@@ -884,11 +884,12 @@ class App {
         sks: '48 SKS (6 Semester)',
         akreditasi: 'Baik Sekali',
         bannerImg: 'IMAGE/Rektorat.JPG',
-        visi: 'Menjadi Program Doktoral Ilmu Manajemen Berorientasi Penemuan Filosofis Keilmuan Baru dan Penguatan Kebijakan Pembangunan Nasional.',
+        visi: 'Menjadi Program Studi Doktoral yang berkontribusi pada ilmu manajemen berbasis kearifan lokal dan bereputasi Internasional.',
         misi: [
-          'Menyelenggarakan pendidikan doktoral berbasis filsafat ilmu, epistemologi, dan metodologi riset sains manajemen.',
-          'Memfasilitasi penulisan disertasi bereputasi tinggi yang menembus publikasi Scopus Q1/Q2.',
-          'Memberikan sumbangan konsep filosofis mutakhir bagi perumusan kebijakan bisnis dan regulasi ekonomi nasional.'
+          'Mengembangkan pengajaran Ilmu Manajemen berbasis kearifan lokal yang dapat diterapkan baik untuk tujuan pengembangan keilmuan maupun tujuan praktis, terutama pada era ekonomi digital.',
+          'Melaksanakan penelitian dan menghasilkan karya ilmiah yang bertaraf internasional dan berkontribusi pada perkembangan Ilmu Manajemen berbasis keaarifan lokal sesuai dengan visi, misi dan roadmap penelitian.',
+          'Melaksanakan Pengabdian kepada Masyarakat untuk mengembangkan pengabdian kepada masyarakat yang bermutu dan unggul, memberikan kontribusi dalam pengembangan pengajaran, ilmu pengetahuan, inovasi dan praktik di bidang Manajemen berbasis kearifan lokal sesuai dengan visi, misi dan roadmap pengabdian kepada masyarakat.',
+          'Menghasilkan lulusan yang berkomitmen untuk menjaga integritas dan kejujuran akademik, serta memberikan kontribusi positif bagi masyarakat.'
         ],
         karir: [
           'Guru Besar / Profesor & Academic Fellow',
