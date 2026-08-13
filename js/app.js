@@ -1097,16 +1097,30 @@ class App {
         <!-- Header Banner Detail -->
         <div style="background: linear-gradient(135deg, rgba(7, 19, 37, 0.90) 0%, rgba(15, 41, 66, 0.85) 100%), url('${details.bannerImg}') center/cover no-repeat; color: #FFF; padding: 4rem 1.5rem 3.5rem 1.5rem; border-bottom: 4px solid var(--color-gold-primary);">
           <div class="container">
-            <button onclick="window.showAllProdi()" class="btn-gold" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; font-weight: 800; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 4px 12px rgba(212,175,55,0.3);">
-              &laquo; Kembali ke Ringkasan Semua Prodi
-            </button>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+              <button onclick="window.showAllProdi()" class="btn-gold" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; font-weight: 800; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 4px 12px rgba(212,175,55,0.3);">
+                &laquo; Kembali ke Ringkasan Semua Prodi
+              </button>
+              ${p.id === 'prodi-s3' ? `
+                <a href="https://smmutm.trunojoyo.ac.id/" target="_blank" rel="noopener noreferrer" style="padding: 0.55rem 1.35rem; font-size: 0.88rem; font-weight: 800; display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #FFF; border-radius: 99px; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.45); text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: transform 0.2s ease;">
+                  📝 Daftar Sekarang 🚀
+                </a>
+              ` : ''}
+            </div>
             <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.75rem;">
               <span style="background: var(--color-gold-primary); color: var(--color-navy-dark); font-size: 0.78rem; font-weight: 900; padding: 0.3rem 0.85rem; border-radius: 99px; text-transform: uppercase;">Jenjang ${p.jenjang}</span>
               <span style="background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.3); color: #FFF; font-size: 0.78rem; font-weight: 800; padding: 0.3rem 0.85rem; border-radius: 99px;">Akreditasi ${details.akreditasi}</span>
               <span style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #34D399; font-size: 0.78rem; font-weight: 800; padding: 0.3rem 0.85rem; border-radius: 99px;">Aktif (${p.jumlah_mahasiswa} Mahasiswa)</span>
             </div>
             <h1 style="color: #FFF; font-size: 2.3rem; font-weight: 900; margin: 0.4rem 0 0.8rem 0; line-height: 1.25;">${p.nama} FEB UTM</h1>
-            <p style="font-size: 1.05rem; opacity: 0.95; max-width: 850px; line-height: 1.6; color: #E2E8F0;">${p.deskripsi}</p>
+            <p style="font-size: 1.05rem; opacity: 0.95; max-width: 850px; line-height: 1.6; color: #E2E8F0; margin-bottom: 1.25rem;">${p.deskripsi}</p>
+            ${p.id === 'prodi-s3' ? `
+              <div style="margin-top: 1rem;">
+                <a href="https://smmutm.trunojoyo.ac.id/" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.45rem; font-size: 0.95rem; font-weight: 900; text-decoration: none; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);">
+                  📝 Daftar Sekarang (Pendaftaran S3 DIM) 🚀
+                </a>
+              </div>
+            ` : ''}
           </div>
         </div>
 
