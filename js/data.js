@@ -1,6 +1,6 @@
 /**
  * Initial Seed Data for Jurusan Manajemen FEB UTM
- * Universitas Trunojoyo Madura
+ * Universitas Trunodjoyo Madura
  */
 
 export const INITIAL_PRODI = [
@@ -48,7 +48,7 @@ export const INITIAL_PRODI = [
     koordinator_gelar: "Dr., S.E., M.Si.",
     koordinator_jabatan: "Koordinator Prodi S3",
     foto_url: "IMAGE/Yahya.jpg",
-    deskripsi: "Program Studi Doktor Ilmu Manajemen (DIM) Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura hadir sebagai pusat pendidikan lanjutan yang berfokus pada pengembangan ilmu manajemen yang tidak hanya berdaya saing global, tetapi juga mengakar kuat pada nilai-nilai luhur masyarakat lokal. Kami berkomitmen untuk mencetak pemimpin, akademisi, dan praktisi yang mampu mengintegrasikan teori manajemen modern dengan pendekatan inovasi sosial dan etika berbasis kearifan lokal.",
+    deskripsi: "Program Studi Doktor Ilmu Manajemen (DIM) Fakultas Ekonomi dan Bisnis Universitas Trunodjoyo Madura hadir sebagai pusat pendidikan lanjutan yang berfokus pada pengembangan ilmu manajemen yang tidak hanya berdaya saing global, tetapi juga mengakar kuat pada nilai-nilai luhur masyarakat lokal. Kami berkomitmen untuk mencetak pemimpin, akademisi, dan praktisi yang mampu mengintegrasikan teori manajemen modern dengan pendekatan inovasi sosial dan etika berbasis kearifan lokal.",
     akreditasi: "Baik Sekali",
     jumlah_mahasiswa: 65
   }
@@ -497,7 +497,7 @@ export const INITIAL_PENGUMUMAN = [
     kategori: "Akademik",
     tanggal: "2026-08-04",
     ringkasan: "Diberitahukan kepada seluruh mahasiswa Jurusan Manajemen FEB UTM bahwa pendaftaran yudisium Periode IV dibuka mulai tanggal 10 - 25 Agustus 2026 melalui sistem online ini.",
-    isi: "Diberitahukan kepada calon wisudawan/wisudawati Jurusan Manajemen (D3, S1, S2, S3) FEB Universitas Trunojoyo Madura bahwa pendaftaran Yudisium Periode IV Tahun 2026 resmi dibuka.\n\nPersyaratan Berkas:\n1. Bebas tanggungan perpustakaan UTM & FEB.\n2. Transkrip nilai bebas matakuliah mengulang.\n3. Bukti penyerahan draf akhir Skripsi/Tesis/Disertasi.\n4. Upload berita acara ujian dan bukti revisi.\n\nSeluruh proses pengunggahan dan pencocokan berkas dilakukan melalui portal ini.",
+    isi: "Diberitahukan kepada calon wisudawan/wisudawati Jurusan Manajemen (D3, S1, S2, S3) FEB Universitas Trunodjoyo Madura bahwa pendaftaran Yudisium Periode IV Tahun 2026 resmi dibuka.\n\nPersyaratan Berkas:\n1. Bebas tanggungan perpustakaan UTM & FEB.\n2. Transkrip nilai bebas matakuliah mengulang.\n3. Bukti penyerahan draf akhir Skripsi/Tesis/Disertasi.\n4. Upload berita acara ujian dan bukti revisi.\n\nSeluruh proses pengunggahan dan pencocokan berkas dilakukan melalui portal ini.",
     penulis: "Admin Jurusan Manajemen",
     penting: true
   },
@@ -516,7 +516,7 @@ export const INITIAL_PENGUMUMAN = [
     judul: "Selamat atas Akreditasi UNGGUL Program Studi S1 Manajemen FEB UTM",
     kategori: "Prestasi Jurusan",
     tanggal: "2026-07-15",
-    ringkasan: "Berdasarkan Keputusan LAMEMBA, Prodi S1 Manajemen Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura berhasil meraih Peringkat Akreditasi UNGGUL.",
+    ringkasan: "Berdasarkan Keputusan LAMEMBA, Prodi S1 Manajemen Fakultas Ekonomi dan Bisnis Universitas Trunodjoyo Madura berhasil meraih Peringkat Akreditasi UNGGUL.",
     isi: "Segenap civitas akademika Jurusan Manajemen FEB UTM mengucapkan rasa syukur dan terima kasih yang mendalam kepada seluruh dosen, tenaga kependidikan, alumni, mahasiswa, serta mitra industri atas raihan Akreditasi UNGGUL dari LAMEMBA.\n\nSemoga capaian ini memotivasi Jurusan Manajemen UTM untuk terus berkembang menjadi pusat keunggulan pendidikan manajemen berpilar kearifan lokal berstandar global.",
     penulis: "Ketua Jurusan Manajemen",
     penting: true

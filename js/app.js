@@ -1,6 +1,6 @@
 /**
  * Application Main Controller
- * Jurusan Manajemen FEB Universitas Trunojoyo Madura
+ * Jurusan Manajemen FEB Universitas Trunodjoyo Madura
  */
 
 import { db } from './storage.js';
@@ -378,7 +378,7 @@ class App {
             <div class="brand-text">
               <span class="brand-title">JURUSAN MANAJEMEN</span>
               <span class="brand-sub-gold">FAKULTAS EKONOMI DAN BISNIS</span>
-              <span class="brand-sub-univ">UNIVERSITAS TRUNOJOYOMADURA</span>
+              <span class="brand-sub-univ">UNIVERSITAS TRUNODJOYO MADURA</span>
             </div>
           </a>
           <ul class="nav-menu">
@@ -624,7 +624,7 @@ class App {
         <div style="text-align: center; margin-bottom: 2rem;">
           <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-gold-primary); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.25rem;">Struktur Organisasi Jurusan</span>
           <h3 style="color: var(--color-navy-primary); font-size: 1.6rem; font-weight: 800;">Jajaran Pimpinan & Koordinator Program Studi</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 0 auto;">Pimpinan Jurusan Manajemen FEB Universitas Trunojoyo Madura serta para Koordinator Program Studi berjenjang D3, S1, S2, dan S3.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 0 auto;">Pimpinan Jurusan Manajemen FEB Universitas Trunodjoyo Madura serta para Koordinator Program Studi berjenjang D3, S1, S2, dan S3.</p>
         </div>
 
         <!-- Tier 1: Pimpinan Utama (Kajur & Sekjur) -->
@@ -729,7 +729,7 @@ class App {
 
         <div style="background: #FFF; padding: 2.5rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); line-height: 1.8;">
           <h3 style="color: var(--color-navy-primary); margin-bottom: 1rem;">Sejarah & Identitas Institusi</h3>
-          <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Jurusan Manajemen merupakan salah satu jurusan tertua dan terbesar di lingkungan Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura. Didirikan dengan komitmen tinggi untuk memajukan pendidikan tinggi di Madura dan Indonesia, Jurusan Manajemen mengelola 4 program studi berjenjang komplit mulai dari vokasi (D3), sarjana (S1), magister (S2), hingga doktoral (S3).</p>
+          <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Jurusan Manajemen merupakan salah satu jurusan tertua dan terbesar di lingkungan Fakultas Ekonomi dan Bisnis Universitas Trunodjoyo Madura. Didirikan dengan komitmen tinggi untuk memajukan pendidikan tinggi di Madura dan Indonesia, Jurusan Manajemen mengelola 4 program studi berjenjang komplit mulai dari vokasi (D3), sarjana (S1), magister (S2), hingga doktoral (S3).</p>
 
           <h3 style="color: var(--color-navy-primary); margin-bottom: 1rem;">Keunggulan & Akreditasi</h3>
           <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Dengan raihan **Akreditasi UNGGUL LAMEMBA** untuk Program Studi (D3, S1, dan S2) Manajemen serta dukungan laboratorium manajemen bisnis digital, inkubator bisnis kewirausahaan, dan laboratorium pengolahan data kuantitatif, kami terus mencetak pemimpin bisnis masa depan.</p>
@@ -1715,7 +1715,7 @@ class App {
               <strong style="color: var(--color-navy-primary); display: block; margin-bottom: 0.25rem;">📍 Alamat Kantor Sekretariat:</strong>
               <p style="color: var(--text-muted); margin: 0; line-height: 1.6; font-size: 0.92rem;">
                 Gedung Fakultas Ekonomi dan Bisnis (FEB) Lt. 2<br>
-                Universitas Trunojoyo Madura<br>
+                Universitas Trunodjoyo Madura<br>
                 Jl. Raya Telang, PO. BOX 2 Kamal, Bangkalan - Jawa Timur (69162)
               </p>
             </div>
@@ -1733,7 +1733,7 @@ class App {
           <div style="background: #FFF; padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
             <img src="IMAGE/LOGO UTM.png" alt="Logo UTM" style="width: 84px; height: auto; max-height: 84px; object-fit: contain; margin-bottom: 1rem;">
             <h4 style="color: var(--color-navy-primary); font-weight: 800; margin: 0;">Lokasi Kampus Utama</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">Gedung FEB Universitas Trunojoyo Madura Bangkalan, Jawa Timur.</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">Gedung FEB Universitas Trunodjoyo Madura Bangkalan, Jawa Timur.</p>
           </div>
         </div>
       </div>
@@ -2379,10 +2379,10 @@ class App {
               <div>
                 <span style="color: #D4AF37; font-weight: 800; font-size: 1.15rem; display: block; line-height: 1.2;">JURUSAN MANAJEMEN</span>
                 <span style="color: #FFF; font-size: 0.78rem; font-weight: 700; display: block; line-height: 1.3; margin-top: 3px;">Fakultas Ekonomi dan Bisnis</span>
-                <span style="color: #CBD5E1; font-size: 0.72rem; font-weight: 600; display: block; margin-top: 2px;">Universitas Trunojoyo Madura</span>
+                <span style="color: #CBD5E1; font-size: 0.72rem; font-weight: 600; display: block; margin-top: 2px;">Universitas Trunodjoyo Madura</span>
               </div>
             </div>
-            <p style="font-size: 0.88rem; line-height: 1.6; color: #CBD5E1;">Fakultas Ekonomi dan Bisnis Universitas Trunojoyo Madura.<br>Gedung FEB Lt. 2 Telang, Bangkalan, Jawa Timur.</p>
+            <p style="font-size: 0.88rem; line-height: 1.6; color: #CBD5E1;">Fakultas Ekonomi dan Bisnis Universitas Trunodjoyo Madura.<br>Gedung FEB Lt. 2 Telang, Bangkalan, Jawa Timur.</p>
           </div>
           <div>
             <h4 style="color: #FFF; margin-bottom: 1rem; font-size: 0.95rem;">Program Studi</h4>
@@ -2404,7 +2404,7 @@ class App {
           </div>
         </div>
         <div class="container" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; text-align: center; font-size: 0.82rem;">
-          <p>© 2026 Jurusan Manajemen FEB Universitas Trunojoyo Madura. All Rights Reserved.</p>
+          <p>© 2026 Jurusan Manajemen FEB Universitas Trunodjoyo Madura. All Rights Reserved.</p>
         </div>
       </footer>
     `;

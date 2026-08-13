@@ -99,7 +99,7 @@ export const UI = {
       </head>
       <body>
         <div class="header">
-          <h2>UNIVERSITAS TRUNOJOYO MADURA</h2>
+          <h2>UNIVERSITAS TRUNODJOYO MADURA</h2>
           <h3>FAKULTAS EKONOMI DAN BISNIS - JURUSAN MANAJEMEN</h3>
           <p>Jl. Raya Telang, PO BOX 2 Kamal - Bangkalan, Jawa Timur | Telp: (031) 3011146</p>
           <hr style="margin-top: 15px;">
