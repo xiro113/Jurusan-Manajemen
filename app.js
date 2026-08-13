@@ -10,7 +10,7 @@ import { UI } from './ui.js';
 class App {
   constructor() {
     this.activeTab = 'home'; // 'home', 'prodi', 'dosen', 'berita', 'kontak', 'student', 'admin', 'dosen_portal'
-    this.adminTab = 'dashboard'; // 'dashboard', 'pemberkasan', 'prestasi', 'attendance', 'dosen', 'pengumuman', 'users'
+    this.adminTab = 'dosen'; // 'dosen', 'attendance'
     this.prodiFilter = 'all';
     this.dosenSearch = '';
     this.selectedProdiId = null;
@@ -1961,192 +1961,7 @@ class App {
 
     let adminContentHTML = '';
 
-    if (this.adminTab === 'dashboard') {
-      adminContentHTML = `
-        <div class="stats-overview-grid">
-          <div class="metric-card">
-            <div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Total Berkas Masuk</div>
-              <div style="font-size: 2rem; font-weight: 800; color: var(--color-navy-primary);">${totalDoc}</div>
-            </div>
-            <div class="metric-icon metric-blue">📄</div>
-          </div>
-          <div class="metric-card">
-            <div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Berkas Selesai</div>
-              <div style="font-size: 2rem; font-weight: 800; color: var(--status-approved);">${totalApprovedDoc}</div>
-            </div>
-            <div class="metric-icon metric-emerald">✅</div>
-          </div>
-          <div class="metric-card">
-            <div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Prestasi Mahasiswa</div>
-              <div style="font-size: 2rem; font-weight: 800; color: #B59325;">${totalPres}</div>
-            </div>
-            <div class="metric-icon metric-gold">🏆</div>
-          </div>
-          <div class="metric-card">
-            <div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Total Dosen</div>
-              <div style="font-size: 2rem; font-weight: 800; color: #8B5CF6;">${totalDosen}</div>
-            </div>
-            <div class="metric-icon metric-purple">👨‍🏫</div>
-          </div>
-        </div>
-
-        <div class="charts-grid">
-          <div class="chart-card">
-            <h3>Rekapitulasi Berkas Masuk per Status</h3>
-            <div class="chart-bars">
-              <div class="bar-col">
-                <div class="bar-val">${docList.filter(d => d.status === 'Diterima').length}</div>
-                <div class="bar-fill" style="height: ${Math.max(15, docList.filter(d => d.status === 'Diterima').length * 25)}px; background: #8B5CF6;"></div>
-                <div class="bar-label">Diterima</div>
-              </div>
-              <div class="bar-col">
-                <div class="bar-val">${docList.filter(d => d.status === 'Sedang Diproses').length}</div>
-                <div class="bar-fill" style="height: ${Math.max(15, docList.filter(d => d.status === 'Sedang Diproses').length * 25)}px; background: #0284C7;"></div>
-                <div class="bar-label">Diproses</div>
-              </div>
-              <div class="bar-col">
-                <div class="bar-val">${docList.filter(d => d.status === 'Perlu Revisi').length}</div>
-                <div class="bar-fill" style="height: ${Math.max(15, docList.filter(d => d.status === 'Perlu Revisi').length * 25)}px; background: #F59E0B;"></div>
-                <div class="bar-label">Revisi</div>
-              </div>
-              <div class="bar-col">
-                <div class="bar-val">${docList.filter(d => d.status.includes('Disetujui')).length}</div>
-                <div class="bar-fill" style="height: ${Math.max(15, docList.filter(d => d.status.includes('Disetujui')).length * 25)}px; background: #10B981;"></div>
-                <div class="bar-label">Selesai</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-card">
-            <h3>Aktivitas Sistem Terakhir (Audit Trail)</h3>
-            <div style="max-height: 220px; overflow-y: auto; font-size: 0.85rem;">
-              ${db.getAuditLogs().map(log => `
-                <div style="padding: 0.6rem 0; border-bottom: 1px dashed var(--border-color);">
-                  <div style="display: flex; justify-content: space-between; font-weight: 600; color: var(--color-navy-primary);">
-                    <span>${log.action}</span>
-                    <span style="color: var(--text-light); font-size: 0.75rem;">${log.timestamp}</span>
-                  </div>
-                  <div style="color: var(--text-muted);">${log.actor}: ${log.detail}</div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-      `;
-    } else if (this.adminTab === 'pemberkasan') {
-      const search = this.adminDocSearch || '';
-      const filterStatus = this.adminDocStatusFilter || '';
-      const page = this.adminDocPage || 1;
-      const limit = 10;
-
-      const result = db.getPemberkasanPaginated(page, limit, search, filterStatus);
-      const docListPaginated = result.data;
-
-      const rows = docListPaginated.map(d => `
-        <tr>
-          <td><strong>${d.id}</strong>${d.kode_tracking ? `<br><span style="font-size:0.7rem; color:var(--color-gold-primary); font-weight:800;">${d.kode_tracking}</span>` : ''}</td>
-          <td>${d.mahasiswa_nama}<br><span style="font-size: 0.75rem; color: #64748B;">NIM: ${d.nim}</span></td>
-          <td>${d.jenis_berkas}<br><span style="font-size: 0.75rem; color: #0284C7;">${d.prodi_nama}</span></td>
-          <td>${d.tanggal_upload}</td>
-          <td>${UI.getStatusBadgeHTML(d.status)}</td>
-          <td>
-            <button class="btn-primary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="window.openVerifyModal('${d.id}')">Verifikasi Status</button>
-          </td>
-        </tr>
-      `).join('');
-
-      const paginationHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding: 0.5rem 0; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
-          <div style="color: var(--text-muted);">
-            Menampilkan ${result.total === 0 ? 0 : (result.page - 1) * limit + 1} - ${Math.min(result.page * limit, result.total)} dari <strong>${result.total.toLocaleString('id-ID')} Data Berkas</strong>
-          </div>
-          <div style="display: flex; gap: 0.35rem; align-items: center;">
-            <button class="btn-outline" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;" ${result.page <= 1 ? 'disabled' : ''} onclick="window.changeAdminDocPage(${result.page - 1})">&laquo; Prev</button>
-            <span style="font-weight: 700; color: var(--color-navy-primary); padding: 0 0.5rem;">Halaman ${result.page} / ${result.totalPages}</span>
-            <button class="btn-outline" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;" ${result.page >= result.totalPages ? 'disabled' : ''} onclick="window.changeAdminDocPage(${result.page + 1})">Next &raquo;</button>
-          </div>
-        </div>
-      `;
-
-      adminContentHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-          <div>
-            <h3 style="color: var(--color-navy-primary); margin: 0;">Kelola & Verifikasi Pemberkasan Mahasiswa</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Sistem Skalabilitas Tinggi: Berkapasitas menampung ribuan hingga puluhan ribu data.</p>
-          </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <button class="btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;" onclick="window.generateBulkData(1000)">+ Generate 1.000 Data Uji</button>
-            <button class="btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;" onclick="window.exportBulkSQL()">Export Batch SQL Supabase</button>
-          </div>
-        </div>
-
-        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
-          <input type="text" id="admin-doc-search" placeholder="Cari Nama, NIM, No. Berkas, Kode Tracking..." value="${search}" style="flex: 1; min-width: 140px; width: 100%; padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem;" onkeyup="window.filterAdminDocs()">
-          <select id="admin-doc-status-filter" style="padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem;" onchange="window.filterAdminDocs()">
-            <option value="">-- Semua Status --</option>
-            <option value="Diterima" ${filterStatus === 'Diterima' ? 'selected' : ''}>Diterima</option>
-            <option value="Sedang Diproses" ${filterStatus === 'Sedang Diproses' ? 'selected' : ''}>Sedang Diproses</option>
-            <option value="Perlu Revisi" ${filterStatus === 'Perlu Revisi' ? 'selected' : ''}>Perlu Revisi</option>
-            <option value="Disetujui Admin Jurusan" ${filterStatus === 'Disetujui Admin Jurusan' ? 'selected' : ''}>Disetujui Admin Jurusan</option>
-            <option value="Disetujui Kaprodi" ${filterStatus === 'Disetujui Kaprodi' ? 'selected' : ''}>Disetujui Kaprodi</option>
-          </select>
-        </div>
-
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>No. Berkas / Tracking</th>
-                <th>Mahasiswa</th>
-                <th>Jenis Berkas / Prodi</th>
-                <th>Tanggal Masuk</th>
-                <th>Status Berkas</th>
-                <th>Aksi Verifikasi</th>
-              </tr>
-            </thead>
-            <tbody>${rows.length ? rows : '<tr><td colspan="6" style="text-align:center; color:var(--text-muted); padding:2rem;">Tidak ada data berkas yang sesuai dengan kriteria pencarian.</td></tr>'}</tbody>
-          </table>
-        </div>
-        ${paginationHTML}
-      `;
-    } else if (this.adminTab === 'prestasi') {
-      const rows = presList.map(p => `
-        <tr>
-          <td><strong>${p.mahasiswa_nama}</strong><br><span style="font-size:0.75rem; color:#64748B;">${p.nim}</span></td>
-          <td>${p.judul}</td>
-          <td>${p.kategori} / <span style="color:#0284C7;">${p.tingkat}</span></td>
-          <td>${p.tanggal_kegiatan}</td>
-          <td>${UI.getStatusBadgeHTML(p.status_verifikasi)}</td>
-          <td>
-            <button class="btn-primary" style="padding:0.25rem 0.5rem; font-size:0.75rem;" onclick="window.verifyPrestasiAdmin('${p.id}', 'Disetujui')">Setujui</button>
-            <button class="btn-outline" style="padding:0.25rem 0.5rem; font-size:0.75rem; color:#EF4444; border-color:#FEE2E2;" onclick="window.verifyPrestasiAdmin('${p.id}', 'Ditolak')">Tolak</button>
-          </td>
-        </tr>
-      `).join('');
-
-      adminContentHTML = `
-        <h3 style="color: var(--color-navy-primary); margin-bottom: 1.5rem;">Modul Khusus Admin: Kelola Berkas Prestasi Mahasiswa</h3>
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Mahasiswa</th>
-                <th>Judul Prestasi</th>
-                <th>Kategori / Tingkat</th>
-                <th>Tanggal</th>
-                <th>Status Verifikasi</th>
-                <th>Aksi Admin</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </div>
-      `;
-    } else if (this.adminTab === 'attendance') {
+    if (this.adminTab === 'attendance') {
       const rows = hadirList.map(h => `
         <tr>
           <td>${h.tanggal}</td>
@@ -2183,39 +1998,8 @@ class App {
           </table>
         </div>
       `;
-    } else if (this.adminTab === 'users') {
-      const rows = userList.map(u => `
-        <tr>
-          <td><strong>${u.nama}</strong></td>
-          <td>${u.email}</td>
-          <td><span class="badge" style="background: #E0F2FE; color: #0284C7;">${u.role.toUpperCase()}</span></td>
-          <td>${u.nim_nidn}</td>
-          <td>${UI.getStatusBadgeHTML(u.status_akun)}</td>
-          <td>
-            <button class="btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" onclick="window.toggleUserStatus('${u.id}')">Ubah Status</button>
-          </td>
-        </tr>
-      `).join('');
-
-      adminContentHTML = `
-        <h3 style="color: var(--color-navy-primary); margin-bottom: 1.5rem;">Manajemen Pengguna & Pengaturan Akun</h3>
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Nama Pengguna</th>
-                <th>Email Login</th>
-                <th>Peran (Role)</th>
-                <th>NIM / NIP</th>
-                <th>Status Akun</th>
-                <th>Aksi Admin</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </div>
-      `;
-    } else if (this.adminTab === 'dosen') {
+    } else {
+      // Default: 'dosen'
       const dosenRows = dosenList.map(d => {
         const status = d.status_aktif || 'Aktif Mengajar';
         let statusBadge = 'background: rgba(16, 185, 129, 0.12); color: #10B981;';
@@ -2290,7 +2074,7 @@ class App {
           <div>
             <span style="background: rgba(2, 132, 199, 0.12); color: #0284C7; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Portal Administrator Jurusan</span>
             <h2 style="color: var(--color-navy-primary); margin: 0.35rem 0 0.2rem 0; font-weight: 800;">Panel Kontrol Admin Jurusan</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Kelola data pemberkasan, prestasi, absensi pimpinan, dosen, dan pengguna jurusan secara terpusat.</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Kelola data dosen dan rekap presensi pimpinan jurusan secara terpusat.</p>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <button class="btn-outline" onclick="window.logoutUser()" style="font-weight: 800; border-color: #FCA5A5; color: #DC2626; background: #FFF; padding: 0.6rem 1rem; font-size: 0.85rem;" title="Keluar dari akun admin untuk beralih akun">
@@ -2302,12 +2086,8 @@ class App {
         <div class="admin-layout">
           <aside class="admin-sidebar">
             <ul class="admin-nav">
-              <li><button class="admin-nav-btn ${this.adminTab === 'dashboard' ? 'active' : ''}" data-admin-tab="dashboard">📊 Dashboard Analytics</button></li>
               <li><button class="admin-nav-btn ${this.adminTab === 'dosen' ? 'active' : ''}" data-admin-tab="dosen">👨‍🏫 Kelola Data & Status Dosen</button></li>
-              <li><button class="admin-nav-btn ${this.adminTab === 'pemberkasan' ? 'active' : ''}" data-admin-tab="pemberkasan">📄 Verifikasi Pemberkasan</button></li>
-              <li><button class="admin-nav-btn ${this.adminTab === 'prestasi' ? 'active' : ''}" data-admin-tab="prestasi">🏆 Berkas Prestasi Mhs</button></li>
               <li><button class="admin-nav-btn ${this.adminTab === 'attendance' ? 'active' : ''}" data-admin-tab="attendance">📌 Daftar Hadir Pimpinan</button></li>
-              <li><button class="admin-nav-btn ${this.adminTab === 'users' ? 'active' : ''}" data-admin-tab="users">👥 Manajemen Pengguna</button></li>
               <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
                 <button class="admin-nav-btn" onclick="window.logoutUser()" style="color: #DC2626; font-weight: 700;">
                   🚪 Keluar / Beralih Akun
