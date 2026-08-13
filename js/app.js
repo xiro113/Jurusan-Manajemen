@@ -501,7 +501,11 @@ class App {
     const formattedTotal = totalMahasiswa.toLocaleString('id-ID') + '+';
 
     return `
-      <section class="hero" style="background: linear-gradient(135deg, rgba(7, 19, 37, 0.58) 0%, rgba(15, 41, 66, 0.48) 60%, rgba(7, 19, 37, 0.60) 100%), url('IMAGE/Gedung FEB UTM.png'); background-size: cover; background-position: center center;">
+      <section class="hero">
+        <video class="hero-video-bg" autoplay loop muted playsinline poster="IMAGE/Gedung FEB UTM.png">
+          <source src="VIDEO/Beranda FEB web.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container hero-container-centered">
           <h1 class="hero-title">Jurusan Manajemen <span>FEB UTM</span></h1>
           
